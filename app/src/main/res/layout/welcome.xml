@@ -5,7 +5,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:paddingBottom="16dp" android:paddingLeft="16dp" android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="#2376C8"
+    android:background="#FFFFFF"
     >
     <ScrollView
         android:id="@+id/login_form"
@@ -20,9 +20,9 @@
             android:layout_marginTop="16dp">
 
             <ImageView
-                android:src="@mipmap/ic_launcher"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:src="@mipmap/login"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
@@ -39,8 +39,9 @@
                 android:textSize="@dimen/project_name_size" />
 
             <RelativeLayout
+                android:id="@+id/frameAll"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
                 android:background="@mipmap/win_bg2"
@@ -53,7 +54,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:background="#ffffff"
+
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true">
@@ -75,8 +76,8 @@
                 android:layout_marginRight="18dp"
                 android:layout_below="@+id/frameName"
                 android:layout_alignParentLeft="true"
-                android:layout_marginBottom="20dp"
-                android:background="#ffffff"
+
+
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true">
                 <EditText
@@ -90,29 +91,36 @@
                     android:imeOptions="actionUnspecified" android:inputType="textPassword"
                     android:maxLines="1" android:singleLine="true"
                     android:layout_alignParentLeft="true"
+
                     />
             </android.support.design.widget.TextInputLayout>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="18dp"
+    android:layout_marginRight="18dp"
+    android:layout_below="@+id/framePassword"
+    >
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
 
-            <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
+        android:text=""
 
-                    android:text=""
-                    android:layout_below="@+id/framePassword"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="记住用户名"
+        android:id="@+id/remindlogin"
 
-                        />
-            <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/framePassword"
-                        android:layout_toRightOf="@+id/checkBox"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="记住用户名"
-                        android:id="@+id/remindlogin"
+        />
+</android.support.design.widget.CoordinatorLayout>
 
-                        />
 
             </RelativeLayout>
 
