@@ -9,7 +9,9 @@ import com.lake.waterlake.home.FrameGridAdapter;
 import com.lake.waterlake.home.FrameGridView;
 
 public class MainActivity extends AppCompatActivity {
-
+    /**
+     * ewe
+     */
     private FrameGridView gridview;
 
     @Override
