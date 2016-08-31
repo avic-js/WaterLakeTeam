@@ -12,14 +12,19 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MyGridView gridview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         setContentView(R.layout.welcome);
+         setContentView(R.layout.main_frame);
 
-        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
+        gridview=(MyGridView) findViewById(R.id.mygridView);
+        gridview.setAdapter(new MyGridAdapter(this));
 
-        loginimage.setBackgroundDrawable(getResources().getDrawable(R.mipmap.ic_launcher));
+//        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
+//
+//        loginimage.setBackgroundDrawable(getResources().getDrawable(R.mipmap.ic_launcher));
 
        // loginimage.setImageDrawable();
 
