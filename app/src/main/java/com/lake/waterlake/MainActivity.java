@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         gridview=(FrameGridView) findViewById(R.id.mygridView);
         gridview.setAdapter(new FrameGridAdapter(this));
-
+// fuyou sasdfadsf
 //        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
 //
 //        loginimage.setBackgroundDrawable(getResources().getDrawable(R.mipmap.ic_launcher));
