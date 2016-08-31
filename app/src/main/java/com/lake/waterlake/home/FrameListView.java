@@ -4,10 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
+import com.lake.waterlake.R;
+
 /**
  * Created by yyh on 16/8/31.
  */
 public class FrameListView extends ListView {
+
+
+
     public FrameListView(Context context) {
         super(context);
     }

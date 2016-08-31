@@ -22,12 +22,17 @@ public class FrameGridAdapter extends BaseAdapter{
     public  int[] imgs = {R.drawable.app_aapay,R.drawable.app_aligame,
             R.drawable.app_appcenter,
         R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer};
+
     public FrameGridAdapter() {
         super();
     }
+
     public FrameGridAdapter(Context mcontext){
         this.mcontext = mcontext;
     }
+
+
+
     @Override
     public int getCount() {
         return imgs.length;
