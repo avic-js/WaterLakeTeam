@@ -1,7 +1,6 @@
 package com.lake.waterlake.home;
 
 import android.content.Context;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,7 @@ public class FrameGridAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView ==null){
-            convertView = LayoutInflater.from(mcontext).inflate(R.layout.mygridview_frame,parent,false);
+            convertView = LayoutInflater.from(mcontext).inflate(R.layout.gridview_frame,parent,false);
 
         }
         TextView tv  = BaseViewHolder.get(convertView, R.id.tv_item);
