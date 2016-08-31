@@ -7,6 +7,7 @@ package com.lake.waterlake.util;
 import java.io.IOException;
 import java.io.InputStream;
 
+//import org.apache.http.HttpClientResponse;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
