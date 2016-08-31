@@ -1,6 +1,7 @@
-package com.lake.waterlake;
+package com.lake.waterlake.home;
 
 import android.content.Context;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lake.waterlake.R;
+
 /**
  * Created by yyh on 16/8/30.
  */
-public class MyGridAdapter  extends BaseAdapter{
+public class FrameGridAdapter extends BaseAdapter{
 
     private Context mcontext;
 
@@ -20,10 +23,10 @@ public class MyGridAdapter  extends BaseAdapter{
     public  int[] imgs = {R.drawable.app_aapay,R.drawable.app_aligame,
             R.drawable.app_appcenter,
         R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer};
-    public MyGridAdapter() {
+    public FrameGridAdapter() {
         super();
     }
-    public MyGridAdapter(Context mcontext){
+    public FrameGridAdapter(Context mcontext){
         this.mcontext = mcontext;
     }
     @Override
@@ -47,10 +50,12 @@ public class MyGridAdapter  extends BaseAdapter{
             convertView = LayoutInflater.from(mcontext).inflate(R.layout.mygridview_frame,parent,false);
 
         }
-        TextView tv  = BaseViewHolder.get(convertView,R.id.tv_item);
+        TextView tv  = BaseViewHolder.get(convertView, R.id.tv_item);
         ImageView iv = BaseViewHolder.get(convertView,R.id.iv_item);
         iv.setBackgroundResource(imgs[position]);
         tv.setText(img_text[position]);
         return convertView;
     }
+
+
 }

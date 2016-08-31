@@ -1,26 +1,24 @@
 package com.lake.waterlake;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+
+import com.lake.waterlake.home.FrameGridAdapter;
+import com.lake.waterlake.home.FrameGridView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyGridView gridview;
+    private FrameGridView gridview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          setContentView(R.layout.main_frame);
 
-        gridview=(MyGridView) findViewById(R.id.mygridView);
-        gridview.setAdapter(new MyGridAdapter(this));
+        gridview=(FrameGridView) findViewById(R.id.mygridView);
+        gridview.setAdapter(new FrameGridAdapter(this));
 
 //        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
 //
