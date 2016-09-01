@@ -86,6 +86,38 @@ public class MainActivity extends AppCompatActivity {
         BaseRequest.getBaseRequests().add(httpget);
     }
 
+    /**
+     * 测试方式测试数据是否可以按照新方式调用
+     */
+    public static void test() {
+        List<RequestParameter> parameters = new ArrayList<RequestParameter>();
+        parameters.add(new RequestParameter("userName", ApplicationGlobal.loginwsName));
+        parameters.add(new RequestParameter("password", ApplicationGlobal.loginwspwd));
+        System.out.println("session 0--> 连接成功 ！！！！！");
+        AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_login, parameters,
+
+                new RequestResultCallback() {
+                    @Override
+                    public void onSuccess(String str) {
+                        try {
+                            JSONObject jsonObj = new JSONObject(str);
+                            ApplicationGlobal.WSSessionId = jsonObj.getString("login");
+
+                            System.out.println("session --> 连接成功 ！！！！！");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        DefaultThreadPool.getInstance().execute(httpget);
+        BaseRequest.getBaseRequests().add(httpget);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
