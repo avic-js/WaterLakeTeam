@@ -14,7 +14,7 @@
     <com.lake.waterlake.home.FrameGridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mygridView"
+        android:id="@+id/framegridView"
         android:horizontalSpacing="0.0dip"
         android:listSelector="@null"
         android:numColumns="3"
@@ -25,5 +25,16 @@
         android:layout_below="@+id/titleHead"
          />
 
+    <com.lake.waterlake.home.FrameListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frameListView"
+        android:horizontalSpacing="0.0dip"
+        android:scrollbars="none"
+        android:verticalSpacing="0.0dip"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/framegridView"
+        >
+    </com.lake.waterlake.home.FrameListView>
 
 </RelativeLayout>

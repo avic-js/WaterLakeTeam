@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_frame);
 
-        gridview = (FrameGridView) findViewById(R.id.mygridView);
-        gridview.setAdapter(new FrameGridAdapter(this));
+//        gridview = (FrameGridView) findViewById(R.id.mygridView);
+//        gridview.setAdapter(new FrameGridAdapter(this));
         initwsLogin();
 
 
