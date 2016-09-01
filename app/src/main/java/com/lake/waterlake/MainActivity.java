@@ -7,6 +7,16 @@ import android.view.MenuItem;
 
 import com.lake.waterlake.home.FrameGridAdapter;
 import com.lake.waterlake.home.FrameGridView;
+import com.lake.waterlake.util.RequestParameter;
+import com.lake.waterlake.network.AsyncHttpPost;
+import com.lake.waterlake.network.RequestResultCallback;
+import com.lake.waterlake.network.BaseRequest;
+import com.lake.waterlake.network.DefaultThreadPool;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.*;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -17,16 +27,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         setContentView(R.layout.main_frame);
+        setContentView(R.layout.main_frame);
 
-        gridview=(FrameGridView) findViewById(R.id.mygridView);
+        gridview = (FrameGridView) findViewById(R.id.mygridView);
         gridview.setAdapter(new FrameGridAdapter(this));
+        initwsLogin();
+
+
 // fuyou sasdfadsf
 //        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
 //
 //        loginimage.setBackgroundDrawable(getResources().getDrawable(R.mipmap.ic_launcher));
 
-       // loginimage.setImageDrawable();
+        // loginimage.setImageDrawable();
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -39,6 +52,38 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+    }
+
+    /**
+     * 初始化通用平台登陆session
+     */
+    public static void initwsLogin() {
+        List<RequestParameter> parameters = new ArrayList<RequestParameter>();
+        parameters.add(new RequestParameter("userName", ApplicationGlobal.loginwsName));
+        parameters.add(new RequestParameter("password", ApplicationGlobal.loginwspwd));
+        System.out.println("session 0--> 连接成功 ！！！！！");
+        AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_login, parameters,
+
+                new RequestResultCallback() {
+                    @Override
+                    public void onSuccess(String str) {
+                        try {
+                            JSONObject jsonObj = new JSONObject(str);
+                            ApplicationGlobal.WSSessionId = jsonObj.getString("login");
+
+                    	System.out.println("session --> 连接成功 ！！！！！");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        DefaultThreadPool.getInstance().execute(httpget);
+        BaseRequest.getBaseRequests().add(httpget);
     }
 
     @Override
