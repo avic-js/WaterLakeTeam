@@ -1,43 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myradio="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
      >
-
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         >
-        <RadioButton
+        <com.lake.waterlake.customcomponents.MenuRadioButton
             android:id="@+id/rb_homeImg"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#FFF"
+            android:button="@null"
             android:checked="true"
-            android:text="@string/project_name"
-            android:drawableTop="@drawable/app_aapay"
-            style="@style/style_RadioButton"
-          />
-        <RadioButton
+            android:clickable="true"
+            android:text="@string/main"
+
+            myradio:drawableTop="@drawable/shouye_red"
+
+            myradio:selfdrawableSize="20dp"
+
+            android:gravity="center"
+            android:textSize="13sp"
+            />
+
+        <com.lake.waterlake.customcomponents.MenuRadioButton
             android:id="@+id/rb_contacts"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#FFF"
+            android:button="@null"
             android:checked="true"
-            android:text="weixi"
-            android:drawableTop="@drawable/app_aligame"
+            android:clickable="true"
+            android:text="@string/query"
+            myradio:drawableTop="@drawable/faxian_red"
+            myradio:selfdrawableSize="20dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            />
 
-            style="@style/style_RadioButton"/>
-        <RadioButton
+        <com.lake.waterlake.customcomponents.MenuRadioButton
             android:id="@+id/rb_discovery"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#FFF"
+            android:button="@null"
             android:checked="true"
-            android:text="weixi"
-            android:drawableTop="@drawable/app_appcenter"
-
-            style="@style/style_RadioButton"/>
-        <RadioButton
+            android:clickable="true"
+            android:text="@string/office"
+            myradio:drawableTop="@drawable/wode_red"
+            myradio:selfdrawableSize="20dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            />
+        <com.lake.waterlake.customcomponents.MenuRadioButton
             android:id="@+id/rb_me"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#FFF"
+            android:button="@null"
             android:checked="true"
-            android:text="333"
-            android:drawableTop="@drawable/app_assign"
+            android:clickable="true"
+            android:text="@string/visit"
+            myradio:drawableTop="@drawable/fenlei_red"
+            myradio:selfdrawableSize="20dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            />
 
-            style="@style/style_RadioButton"/>
 
     </RadioGroup>
 
