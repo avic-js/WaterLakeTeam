@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="50dp"
+    android:id="@+id/title_bar"
+    android:background="#10f"
+    android:padding="3dp">
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/left_1920"/>
+   <Button
+       android:layout_width="50dp"
+       android:layout_height="50dp"
+       android:layout_alignParentRight="true"
+       android:layout_centerVertical="true"
+       android:background="@drawable/right_1920"/>
+
+    <TextView
+        android:id="@+id/title_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textSize="25sp"
+        android:width="200dp"/>
+</RelativeLayout>
