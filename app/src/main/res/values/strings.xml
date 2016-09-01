@@ -7,4 +7,8 @@
     <string name="prompt_password">密码 (必填)</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_sign_in">登 录</string>
+    <string name="main">首页</string>
+    <string name="query">综查</string>
+    <string name="office">办公</string>
+    <string name="visit">巡视</string>
 </resources>
