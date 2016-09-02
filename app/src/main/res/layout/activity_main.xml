@@ -9,6 +9,7 @@
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
+        android:background="#fff"
         >
         <com.lake.waterlake.customcomponents.MenuRadioButton
             android:id="@+id/rb_homeImg"
@@ -17,7 +18,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="#000"
+            android:background="#FFF"
             android:button="@null"
             android:checked="true"
             android:clickable="true"
