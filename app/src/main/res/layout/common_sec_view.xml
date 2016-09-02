@@ -23,8 +23,7 @@
             />
         <com.lake.waterlake.customcomponents.MenuRadioButton
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-
+            android:layout_height="match_parent"
             android:text="监测时间:"
             android:button="@null"
             android:checked="true"
