@@ -13,8 +13,9 @@ import com.lake.waterlake.home.*;
 
 /**
  * Created by yyh on 16/8/31.
+ * 首页
  */
-public class ChatFragment extends LazyFragment{
+public class HomeFragment extends LazyFragment{
 
     View view;
     FrameListView flistView;
@@ -36,18 +37,18 @@ public class ChatFragment extends LazyFragment{
 
     @Override
     protected void initData() {
-        System.out.print("-----ChatFragment-----");
+        System.out.print("-----HomeFragment-----");
        // flistView = (FrameListView)view.findViewById(R.id.frameListView);
-       // flistView.setAdapter(new FrameListViewAdapter(ChatFragment.this.getContext(), mcs_value, mcs_time));
+       // flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(), mcs_value, mcs_time));
 
         fgridview=(FrameGridView)view.findViewById(R.id.framegridView);
-        fgridview.setAdapter(new FrameGridAdapter(ChatFragment.this.getContext()));
+        fgridview.setAdapter(new FrameGridAdapter(HomeFragment.this.getContext()));
 
         String[] mcs_value ={"3.2","2.4","1.99","0.99","0.2","0.4"};;
         String[] mcs_time={"2016.3.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2"};
 
          flistView = (FrameListView) view.findViewById(R.id.frameListView);
-         flistView.setAdapter(new FrameListViewAdapter(ChatFragment.this.getContext(),mcs_value,mcs_time));
+         flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(),mcs_value,mcs_time));
 
     }
 

@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * Created by yyh on 16/8/31.
+ *
+ * 巡查
  */
-public class MeFragment extends LazyFragment{
+public class VisitFragment extends LazyFragment{
 
 
     @Override
@@ -21,7 +23,7 @@ public class MeFragment extends LazyFragment{
 
     @Override
     protected void initData() {
-        System.out.print("-----MeFragment-----");
+        System.out.print("-----VisitFragment-----");
     }
 
 }

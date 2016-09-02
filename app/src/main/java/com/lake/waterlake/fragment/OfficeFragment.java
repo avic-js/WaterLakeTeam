@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * Created by yyh on 16/8/31.
  */
-public class DiscoveryFragment extends LazyFragment{
+public class OfficeFragment extends LazyFragment{
 
 
         @Override
@@ -21,6 +21,6 @@ public class DiscoveryFragment extends LazyFragment{
 
         @Override
         protected void initData() {
-            System.out.print("-----DiscoveryFragment-----");
+            System.out.print("-----OfficeFragment-----");
         }
 }

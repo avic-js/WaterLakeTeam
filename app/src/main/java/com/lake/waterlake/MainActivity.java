@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_frame);
+        setContentView(R.layout.common_sec_view);
 
 //        gridview = (FrameGridView) findViewById(R.id.mygridView);
 //        gridview.setAdapter(new FrameGridAdapter(this));

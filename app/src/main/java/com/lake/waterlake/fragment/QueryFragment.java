@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by yyh on 16/8/31.
+ * Created by
+ * 综合查询
  */
-public class ContactsFragment extends LazyFragment{
+public class QueryFragment extends LazyFragment{
 
 
     @Override
@@ -21,7 +22,7 @@ public class ContactsFragment extends LazyFragment{
 
     @Override
     protected void initData() {
-        System.out.print("-----ContactsFragment-----");
+        System.out.print("-----QueryFragment-----");
     }
 
 }

@@ -1,4 +1,4 @@
-package com.lake.waterlake;
+package com.lake.waterlake.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -7,10 +7,11 @@ import android.support.v4.view.ViewPager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.lake.waterlake.fragment.ChatFragment;
-import com.lake.waterlake.fragment.ContactsFragment;
-import com.lake.waterlake.fragment.DiscoveryFragment;
-import com.lake.waterlake.fragment.MeFragment;
+import com.lake.waterlake.fragment.ComFragmentPagerAdapter;
+import com.lake.waterlake.fragment.OfficeFragment;
+import com.lake.waterlake.fragment.QueryFragment;
+import com.lake.waterlake.fragment.HomeFragment;
+import com.lake.waterlake.fragment.VisitFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,15 +70,15 @@ public class RadioMainActivity extends FragmentActivity {
          */
 
         viewPager = (ViewPager)findViewById(R.id.FrameViewPager);
-        ChatFragment chatFragment =new ChatFragment();
-        ContactsFragment contactsFragment = new ContactsFragment();
-        DiscoveryFragment discoveryFragment = new DiscoveryFragment();
-        MeFragment meFragment = new MeFragment();
+        HomeFragment homeFragment =new HomeFragment();
+        QueryFragment queryFragment = new QueryFragment();
+        OfficeFragment officeFragment = new OfficeFragment();
+        VisitFragment visitFragment = new VisitFragment();
         List<Fragment> alFragment = new ArrayList<Fragment>();
-        alFragment.add(chatFragment);
-        alFragment.add(contactsFragment);
-        alFragment.add(discoveryFragment);
-        alFragment.add(meFragment);
+        alFragment.add(homeFragment);
+        alFragment.add(queryFragment);
+        alFragment.add(officeFragment);
+        alFragment.add(visitFragment);
         //viewPager Adapter
 
         viewPager.setAdapter(new ComFragmentPagerAdapter(getSupportFragmentManager(),alFragment));
