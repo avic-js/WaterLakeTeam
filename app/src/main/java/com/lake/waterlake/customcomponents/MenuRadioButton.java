@@ -16,6 +16,14 @@ public class MenuRadioButton  extends RadioButton{
 
     private int mDrawableSize;// xml set size
 
+    private int mdynaSize;// 动态加载 size
+
+    public MenuRadioButton(Context context,int dynaSize){
+        this(context);
+      //  this.mdynaSize =  dynaSize;
+       // this.initRadioButton(context,null,1);
+    }
+
     public MenuRadioButton(Context context) {
         this(context, null, 0);
     }
@@ -25,7 +33,12 @@ public class MenuRadioButton  extends RadioButton{
     }
 
     public MenuRadioButton(Context context, AttributeSet attrs,int defStyle) {
-        super(context, attrs,defStyle);
+        super(context, attrs, defStyle);
+        this.initRadioButton(context, attrs, defStyle);
+    }
+
+    public  void initRadioButton(Context context, AttributeSet attrs,int defStyle){
+
         Drawable drawableLeft = null,drawableRight = null,drawableTop = null,  drawableBottom = null;
 
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MenuRadioButton);
@@ -35,7 +48,14 @@ public class MenuRadioButton  extends RadioButton{
             Log.i("MyRadioButton", "attr:" + attr);
             switch (attr){
                 case  R.styleable.MenuRadioButton_selfdrawableSize:
-                    mDrawableSize = array.getDimensionPixelSize(R.styleable.MenuRadioButton_selfdrawableSize,50);
+                        if (defStyle==0) { // 是否动态加载
+                        mDrawableSize = array.getDimensionPixelSize(R.styleable.MenuRadioButton_selfdrawableSize, 50);
+                    } else{
+                        mDrawableSize = array.getDimensionPixelSize(mdynaSize, 50);
+                        Drawable dra  =  array.getDrawable(R.styleable.MenuRadioButton_drawableLeft);
+
+
+                    }
                     break;
                 case R.styleable.MenuRadioButton_drawableTop:
                     drawableTop = array.getDrawable(attr);
@@ -57,8 +77,10 @@ public class MenuRadioButton  extends RadioButton{
         array.recycle();
 
         setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
-
     }
+
+
+
     public void setCompoundDrawablesWithIntrinsicBounds(Drawable left,
                                                         Drawable top, Drawable right, Drawable bottom) {
 

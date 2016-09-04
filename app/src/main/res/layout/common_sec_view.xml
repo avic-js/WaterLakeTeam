@@ -7,59 +7,76 @@
     <include android:id="@+id/includeTitle"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         layout="@layout/title_view_option" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/kindName"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="18dp"
-            android:textColor="#1ff"
-            android:layout_marginLeft="15dp"
-            android:layout_alignParentLeft="true"
-            android:text="沙渚(环保局)"
-            android:gravity="center"
-            />
-        <com.lake.waterlake.customcomponents.MenuRadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="监测时间:"
-            android:button="@null"
-            android:checked="true"
-            android:clickable="true"
-            android:layout_toLeftOf="@+id/tj_time"
-            android:textSize="12dp"
-            myradio:drawableLeft="@drawable/shouye_red"
-            myradio:selfdrawableSize="20dp"
-            android:gravity="center"
-            android:layout_marginRight="5dp"
-            />
-        <TextView
-            android:id="@+id/tj_time"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="12dp"
-            android:textColor="#1ff"
-            android:text="2016/12/01"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            />
-    </RelativeLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <ScrollView android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal" >
-        <ListView
-            android:id="@+id/root_listView"
+        <!--root first -->
+    <LinearLayout
+        android:id="@+id/root_linearLayout"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
+        <!--动态生成部分-->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:orientation="horizontal">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:id="@+id/kindName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="18dp"
+                android:textColor="#1ff"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentLeft="true"
+                android:text="沙渚(环保局)"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/tj_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="21dp"
+                android:textColor="#1ff"
+                android:text="2016/12/01"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                />
+            <com.lake.waterlake.customcomponents.MenuRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="监测时间:"
+                android:button="@null"
+                android:checked="true"
+                android:clickable="true"
+                android:layout_toLeftOf="@+id/tj_time"
+                android:textSize="12dp"
+                myradio:drawableLeft="@drawable/shouye_red"
+                myradio:selfdrawableSize="20dp"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                />
+        </RelativeLayout>
+<!--
+        <ListView
+            android:id="@+id/contnet_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            />
+    -->
+        </RelativeLayout>
+        <!--动态生成部分-->
+
+     </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
