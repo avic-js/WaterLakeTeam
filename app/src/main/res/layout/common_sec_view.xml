@@ -8,7 +8,7 @@
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         layout="@layout/title_view_option" />
     <ScrollView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1300dp"
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal" >
         <!--root first -->
@@ -25,6 +25,7 @@
             android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/title_listView"
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <TextView
@@ -64,15 +65,17 @@
                 android:layout_marginRight="5dp"
                 />
         </RelativeLayout>
-<!--
+
         <ListView
             android:id="@+id/contnet_listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentBottom="true"
+            android:layout_height="120dp"
+            android:horizontalSpacing="0.0dip"
+            android:scrollbars="none"
+            android:verticalSpacing="0.0dip"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/title_listView"
             />
-    -->
         </RelativeLayout>
         <!--动态生成部分-->
 

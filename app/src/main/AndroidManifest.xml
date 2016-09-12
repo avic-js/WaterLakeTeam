@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.lake.waterlake.business.commonSecondListViewActivity"
+            android:name=".RadioMainActivity"
 
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -28,6 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".business.CommonSecondListViewActivity"></activity>
     </application>
 
 </manifest>

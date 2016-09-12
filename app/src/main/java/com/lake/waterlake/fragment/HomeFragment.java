@@ -1,13 +1,16 @@
 package com.lake.waterlake.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.lake.waterlake.R;
 
+import com.lake.waterlake.business.CommonSecondListViewActivity;
 import com.lake.waterlake.home.*;
 
 
@@ -43,6 +46,32 @@ public class HomeFragment extends LazyFragment{
 
         fgridview=(FrameGridView)view.findViewById(R.id.framegridView);
         fgridview.setAdapter(new FrameGridAdapter(HomeFragment.this.getContext()));
+        fgridview.setOnItemClickListener(new  AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            /**
+             * R.drawable.app_aapay,R.drawable.app_aligame,
+             R.drawable.app_appcenter,
+             R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer
+             */
+                switch (FrameGridAdapter.imgs[position]){
+                    case R.drawable.app_aapay:
+                    startActivity(new Intent(getActivity(), CommonSecondListViewActivity.class));//启动另一个Activity
+                   // finish();//结束此Activity，可回收
+                    break;
+                    case R.drawable.app_aligame:
+                        startActivity(new Intent(getActivity(), CommonSecondListViewActivity.class));//启动另一个Activity
+                        //finish();//结束此Activity，可回收
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+            }
+        });
+
 
         String[] mcs_value ={"3.2","2.4","1.99","0.99","0.2","0.4"};;
         String[] mcs_time={"2016.3.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2"};
@@ -51,5 +80,7 @@ public class HomeFragment extends LazyFragment{
          flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(),mcs_value,mcs_time));
 
     }
+
+
 
 }
