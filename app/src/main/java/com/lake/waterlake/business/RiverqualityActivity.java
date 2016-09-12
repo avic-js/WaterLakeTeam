@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 /**
  * Created by yyh on 16/9/12.
+ * 河道水质
  */
 public class RiverqualityActivity extends Activity {
 

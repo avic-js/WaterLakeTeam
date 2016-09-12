@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 /**
  * Created by yyh on 16/9/12.
+ * 卫星遥感
  */
 public class SatelliteActivity extends Activity {
 
