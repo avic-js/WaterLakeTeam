@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by yyh on 16/9/12.
+ * Created by yyh on 16/9/19.
  */
-public class transferWaterActivity extends Activity {
+public class TransferWaterActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //
+
+        //FDSAFDSA
     }
+
 }
