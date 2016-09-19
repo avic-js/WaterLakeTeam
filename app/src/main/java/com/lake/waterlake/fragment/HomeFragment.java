@@ -10,9 +10,14 @@ import android.widget.AdapterView;
 
 import com.lake.waterlake.R;
 
-import com.lake.waterlake.business.CommonSecondListViewActivity;
-import com.lake.waterlake.home.*;
 
+import com.lake.waterlake.business.ComSecondListViewActivity;
+import com.lake.waterlake.business.BluealgaeActivity;
+import com.lake.waterlake.business.RiverqualityActivity;
+import com.lake.waterlake.business.SatelliteActivity;
+import com.lake.waterlake.business.TransferWaterActivity;
+import com.lake.waterlake.business.WeatherActivity;
+import com.lake.waterlake.home.*;
 
 /**
  * Created by yyh on 16/8/31.
@@ -32,8 +37,6 @@ public class HomeFragment extends LazyFragment{
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view =  inflater.inflate(R.layout.main_frame,container,false);
-
-
 
         return view;
     }
@@ -55,23 +58,33 @@ public class HomeFragment extends LazyFragment{
              R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer
              */
                 switch (FrameGridAdapter.imgs[position]){
-                    case R.drawable.app_aapay:
-                    startActivity(new Intent(getActivity(), CommonSecondListViewActivity.class));//启动另一个Activity
-                   // finish();//结束此Activity，可回收
-                    break;
-                    case R.drawable.app_aligame:
-                        startActivity(new Intent(getActivity(), CommonSecondListViewActivity.class));//启动另一个Activity
-                        //finish();//结束此Activity，可回收
-                        break;
+                    case R.drawable.app_aapay://DrinksafeActivity
+                    startActivity(new Intent(getActivity(), ComSecondListViewActivity.class));//启动另一个Activity
 
+                    break;
+                    case R.drawable.app_aligame://
+                        startActivity(new Intent(getActivity(), BluealgaeActivity.class));//启动另一个Activity
+
+                        break;
+                    case R.drawable.app_appcenter://
+                        startActivity(new Intent(getActivity(), WeatherActivity.class));//启动另一个Activity
+
+                        break;
+                    case R.drawable.app_assign://
+                        startActivity(new Intent(getActivity(), TransferWaterActivity.class));//启动另一个Activity
+
+                        break;
+                    case R.drawable.app_plane://
+                        startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
+                        break;
+                    case R.drawable.app_transfer://
+                        startActivity(new Intent(getActivity(), RiverqualityActivity.class));//启动另一个Activity
+                        break;
                     default:
                         break;
-
                 }
-
             }
         });
-
 
         String[] mcs_value ={"3.2","2.4","1.99","0.99","0.2","0.4"};;
         String[] mcs_time={"2016.3.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2"};
@@ -80,7 +93,5 @@ public class HomeFragment extends LazyFragment{
          flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(),mcs_value,mcs_time));
 
     }
-
-
 
 }

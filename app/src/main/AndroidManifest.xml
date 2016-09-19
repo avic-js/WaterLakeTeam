@@ -30,6 +30,13 @@
         </activity>
 
         <activity android:name=".business.CommonSecondListViewActivity"></activity>
+        <activity android:name=".business.ComSecondListViewActivity"></activity>
+        <activity android:name=".business.BluealgaeActivity"></activity>
+        <activity android:name=".business.DrinksafeActivity"></activity>
+        <activity android:name=".business.RiverqualityActivity"></activity>
+        <activity android:name=".business.SatelliteActivity"></activity>
+        <activity android:name=".business.TransferWaterActivity"></activity>
+        <activity android:name=".business.WeatherActivity"></activity>
     </application>
 
 </manifest>
