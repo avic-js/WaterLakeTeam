@@ -37,7 +37,7 @@
                         android:gravity="center"
                         />
                     <TextView
-                        android:id="@+id/tj_time"
+                        android:id="@+id/SZ_time"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="21dp"
@@ -54,7 +54,7 @@
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
-                        android:layout_toLeftOf="@+id/tj_time"
+                        android:layout_toLeftOf="@+id/SZ_time"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/shouye_red"
                         myradio:selfdrawableSize="20dp"
@@ -63,7 +63,7 @@
                         />
                 </RelativeLayout>
                 <ListView
-                    android:id="@+id/contnet_listView"
+                    android:id="@+id/SZ_listView"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:horizontalSpacing="0.0dip"
@@ -93,7 +93,7 @@
                         android:gravity="center"
                         />
                     <TextView
-                        android:id="@+id/tj_time2"
+                        android:id="@+id/XD_time2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="21dp"
@@ -110,7 +110,7 @@
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
-                        android:layout_toLeftOf="@+id/tj_time2"
+                        android:layout_toLeftOf="@+id/XD_time2"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/shouye_red"
                         myradio:selfdrawableSize="20dp"
@@ -119,7 +119,7 @@
                         />
                 </RelativeLayout>
                 <ListView
-                    android:id="@+id/contnet_listView2"
+                    android:id="@+id/XD_listView2"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:horizontalSpacing="0.0dip"

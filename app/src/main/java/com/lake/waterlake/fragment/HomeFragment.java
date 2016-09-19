@@ -13,6 +13,7 @@ import com.lake.waterlake.R;
 
 import com.lake.waterlake.business.ComSecondListViewActivity;
 import com.lake.waterlake.business.BluealgaeActivity;
+import com.lake.waterlake.business.DrinksafeActivity;
 import com.lake.waterlake.business.RiverqualityActivity;
 import com.lake.waterlake.business.SatelliteActivity;
 import com.lake.waterlake.business.TransferWaterActivity;
@@ -59,7 +60,7 @@ public class HomeFragment extends LazyFragment{
              */
                 switch (FrameGridAdapter.imgs[position]){
                     case R.drawable.app_aapay://DrinksafeActivity
-                    startActivity(new Intent(getActivity(), ComSecondListViewActivity.class));//启动另一个Activity
+                    startActivity(new Intent(getActivity(), DrinksafeActivity.class));//启动另一个Activity
 
                     break;
                     case R.drawable.app_aligame://
