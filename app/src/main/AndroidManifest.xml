@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".business.CommonSecondListViewActivity"></activity>
+        <activity android:name=".business.commonSecondListViewActivity"></activity>
         <activity android:name=".business.ComSecondListViewActivity"></activity>
         <activity android:name=".business.BluealgaeActivity"></activity>
         <activity android:name=".business.DrinksafeActivity"></activity>
