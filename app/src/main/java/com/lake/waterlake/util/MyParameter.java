@@ -22,7 +22,7 @@ public class MyParameter {
      * @param Conditions：对应各个参数的值
      * @return参数的list列表
      */
-    public List<RequestParameter> getParameters(String sessionId, String servName,
+    public static List<RequestParameter> getParameters(String sessionId, String servName,
                                                 String[] params, String[] Conditions) {
         List<RequestParameter> parameters = new ArrayList<RequestParameter>();
         parameters.add(new RequestParameter("sessionId", sessionId));

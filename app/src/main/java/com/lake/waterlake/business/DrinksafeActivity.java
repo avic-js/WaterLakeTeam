@@ -8,9 +8,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
 import com.lake.waterlake.model.Person;
+import com.lake.waterlake.network.AsyncHttpPost;
+import com.lake.waterlake.network.BaseRequest;
+import com.lake.waterlake.network.DefaultThreadPool;
+import com.lake.waterlake.network.RequestResultCallback;
+import com.lake.waterlake.util.MyParameter;
+import com.lake.waterlake.util.RequestParameter;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +77,37 @@ public class DrinksafeActivity extends Activity {
 
         XD_listView.setAdapter(perAdapter);
 
+    }
+
+    /**
+     * 测试方式测试数据是否可以按照新方式调用
+     */
+    public static void initData() {
+        List<RequestParameter>    parameters =
+                  MyParameter.getParameters(ApplicationGlobal.WSSessionId,"waterLake.test",null,null);
+
+        System.out.println("session 0--> 连接成功 ！！！！！");
+        AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
+
+                new RequestResultCallback() {
+                    @Override
+                    public void onSuccess(String str) {
+                        try {
+                            JSONObject jsonObj = new JSONObject(str);
+                            ApplicationGlobal.WSSessionId = jsonObj.getString("login");
+
+                            System.out.println("session --> 连接成功 ！！！！！");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        DefaultThreadPool.getInstance().execute(httpget);
+        BaseRequest.getBaseRequests().add(httpget);
     }
 }

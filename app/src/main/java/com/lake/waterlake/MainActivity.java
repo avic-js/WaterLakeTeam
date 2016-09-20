@@ -33,17 +33,13 @@ public class MainActivity extends AppCompatActivity {
 //        gridview.setAdapter(new FrameGridAdapter(this));
         initwsLogin();
 
-
-// fuyou sasdfadsf
 //        ImageView loginimage = (ImageView)findViewById(R.id.imageView);
-//
 //        loginimage.setBackgroundDrawable(getResources().getDrawable(R.mipmap.ic_launcher));
 
         // loginimage.setImageDrawable();
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-//
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override

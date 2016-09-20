@@ -12,6 +12,7 @@ import com.lake.waterlake.fragment.OfficeFragment;
 import com.lake.waterlake.fragment.QueryFragment;
 import com.lake.waterlake.fragment.HomeFragment;
 import com.lake.waterlake.fragment.VisitFragment;
+import com.lake.waterlake.util.WSFunction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,8 @@ public class RadioMainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        WSFunction.initwsLogin();//初始化SESSION
+
         initView();
     }
 
