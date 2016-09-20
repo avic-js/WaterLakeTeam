@@ -2,6 +2,9 @@ package com.lake.waterlake.business;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -12,17 +15,21 @@ import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
 import com.lake.waterlake.model.Person;
+import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
 import com.lake.waterlake.network.DefaultThreadPool;
 import com.lake.waterlake.network.RequestResultCallback;
-import com.lake.waterlake.util.MyParameter;
 import com.lake.waterlake.util.RequestParameter;
+import com.lake.waterlake.util.WSFunction;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.logging.LogRecord;
 
 /**
  * Created by yyh on 16/9/12.
@@ -36,6 +43,9 @@ public class DrinksafeActivity extends Activity {
     ListView XD_listView;//锡东列表
     TextView title_text;//抬头标题
     Button back_Btn;//back
+
+   public List<TwoParams> personList;
+    public  List<TwoParams> personList2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,26 +66,31 @@ public class DrinksafeActivity extends Activity {
         XD_time2 =(TextView)findViewById(R.id.XD_time2);
         SZ_listView = (ListView)findViewById(R.id.SZ_listView);
         XD_listView = (ListView)findViewById(R.id.XD_listView2);
+        personList = new ArrayList<TwoParams>();
+        personList2 = new ArrayList<TwoParams>();
 
-        List<Person> personList = new ArrayList<Person>();
-        personList.add(new Person("zhangfei","张飞","38"));
-        personList.add(new Person("liwang","李王","12"));
-        personList.add(new Person("xiaoming","小明","24"));
-        personList.add(new Person("zhaolei","赵磊","21"));
+        initData();
 
+    }
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
-        SZ_listView.setAdapter(perAdapter);
+    public  void  showViewData(){
+//        List<Person> personList = new ArrayList<Person>();
+//        personList.add(new Person("zhangfei","张飞","38"));
+//        personList.add(new Person("liwang","李王","12"));
+//        personList.add(new Person("xiaoming","小明","24"));
+//        personList.add(new Person("zhaolei","赵磊","21"));
 
-        personList = new ArrayList<Person>();
-        personList.add(new Person("zhangfei","xxx","12"));
-        personList.add(new Person("liwang","ttt","23"));
-        personList.add(new Person("xiaoming","vvv","34"));
-        personList.add(new Person("zhaolei", "eee", "45"));
+//        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
+//        SZ_listView.setAdapter(perAdapter);
 
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,personList);
+//        personList = new ArrayList<Person>();
+//        personList.add(new Person("zhangfei","xxx","12"));
+//        personList.add(new Person("liwang","ttt","23"));
+//        personList.add(new Person("xiaoming","vvv","34"));
+//        personList.add(new Person("zhaolei", "eee", "45"));
 
-        XD_listView.setAdapter(perAdapter);
+//       // PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,personList);
+//        XD_listView.setAdapter(perAdapter);
 
     }
 
@@ -84,22 +99,35 @@ public class DrinksafeActivity extends Activity {
      */
     public static void initData() {
         List<RequestParameter>    parameters =
-                  MyParameter.getParameters(ApplicationGlobal.WSSessionId,"waterLake.test",null,null);
+                  WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
 
         System.out.println("session 0--> 连接成功 ！！！！！");
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
 
                 new RequestResultCallback() {
+
+
                     @Override
                     public void onSuccess(String str) {
                         try {
-                            JSONObject jsonObj = new JSONObject(str);
-                            ApplicationGlobal.WSSessionId = jsonObj.getString("login");
+                            JSONArray jarray = new JSONArray(str);
+                           List<TwoParams> pList = new ArrayList<TwoParams>();
+                            for (int i=0;i<jarray.length();i++){
+                                JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                String proName    = jsonObj.getString("ProName");
+                                String rank =  jsonObj.getString("Rank");
+                                pList.add(new TwoParams(proName, rank));
+                            }
+                            // handler send data
+                            Message msg =  new Message();
+                            msg.what=111;
+                            msg.obj = pList;
+                            //DrinksafeActivity.this.mHandler.sendMessage(msg);
 
-                            System.out.println("session --> 连接成功 ！！！！！");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+
                     }
 
                     @Override
@@ -110,4 +138,19 @@ public class DrinksafeActivity extends Activity {
         DefaultThreadPool.getInstance().execute(httpget);
         BaseRequest.getBaseRequests().add(httpget);
     }
+
+    Handler mHandler = new Handler(){
+        public void handleMessage(Message msg){
+            switch (msg.what){
+                case 111:
+
+                    break;
+                case  112:
+
+                    break;
+            }
+
+        };
+    };
+
 }

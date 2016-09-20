@@ -7,10 +7,14 @@ package com.lake.waterlake.model;
  */
 public class TwoParams {
 
+    public TwoParams(String obj1,String obj2){
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+    }
+
     private  String obj1;
 
     private  String obj2;
-
 
     public String getObj1() {
         return obj1;
