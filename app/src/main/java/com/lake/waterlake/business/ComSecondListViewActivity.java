@@ -13,8 +13,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.lake.waterlake.R;
-import com.lake.waterlake.customAdapter.PersonAdapter;
-import com.lake.waterlake.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +37,11 @@ public class ComSecondListViewActivity extends Activity {
         root_listView = (ListView)findViewById(R.id.contnet_listView);
         root_scrollView= (ScrollView)findViewById(R.id.scrollView);
 
-        List<Person> personList = new ArrayList<Person>();
-        personList.add(new Person("zhangfei","张飞","38"));
-        personList.add(new Person("liwang","李王","12"));
-        personList.add(new Person("xiaoming","小明","24"));
-        personList.add(new Person("zhaolei","赵磊","21"));
+//        List<Person> personList = new ArrayList<Person>();
+//        personList.add(new Person("zhangfei","张飞","38"));
+//        personList.add(new Person("liwang","李王","12"));
+//        personList.add(new Person("xiaoming","小明","24"));
+//        personList.add(new Person("zhaolei","赵磊","21"));
 
         ListView mylistview =  (ListView)findViewById(R.id.contnet_listView);
 //        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
