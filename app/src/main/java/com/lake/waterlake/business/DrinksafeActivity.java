@@ -53,7 +53,7 @@ public class DrinksafeActivity extends Activity {
         Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
         setContentView(R.layout.drinksafe_view);
         title_text =(TextView)findViewById(R.id.title_center_text);
-        title_text.setText("饮水安全");
+        title_text.setText(R.string.drinksafe);
         back_Btn = (Button)findViewById(R.id.back_btn);
         back_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,18 +82,13 @@ public class DrinksafeActivity extends Activity {
     }
 
     /**
-     * 测试方式测试数据是否可以按照新方式调用
+     * 调用数据
      */
     public  void initData() {
         List<RequestParameter>    parameters =
                   WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
-
-        System.out.println("session 0--> 连接成功 ！！！！！");
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
-
                 new RequestResultCallback() {
-
-
                     @Override
                     public void onSuccess(String str) {
                         try {
@@ -126,6 +121,9 @@ public class DrinksafeActivity extends Activity {
         BaseRequest.getBaseRequests().add(httpget);
     }
 
+    /**
+     * 异步回调,更新页面数据
+     */
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
             switch (msg.what){
