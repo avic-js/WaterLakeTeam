@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.lake.waterlake.R;
 import com.lake.waterlake.home.BaseViewHolder;
 import com.lake.waterlake.model.Person;
+import com.lake.waterlake.model.TwoParams;
 
 import java.util.List;
 
@@ -20,9 +21,9 @@ import java.util.List;
 public class PersonAdapter  extends BaseAdapter{
 
     private Context mcontext;
-    List<Person> personList;
+    List<TwoParams> personList;
 
-    public PersonAdapter(Context context, int resource, List<Person> mlist) {
+    public PersonAdapter(Context context, int resource, List<TwoParams> mlist) {
 
         this.mcontext =  context;
         this.personList =  mlist;
@@ -35,13 +36,11 @@ public class PersonAdapter  extends BaseAdapter{
             convertView = LayoutInflater.from(mcontext).inflate(R.layout.my_listitem,parent,false);
         }
 
-        TextView id = BaseViewHolder.get(convertView,R.id.id);
-        TextView name  = BaseViewHolder.get(convertView,R.id.name);
-        TextView age  = BaseViewHolder.get(convertView,R.id.age);
+        TextView id = BaseViewHolder.get(convertView,R.id.obj);
+        TextView name  = BaseViewHolder.get(convertView,R.id.obj2);
 
-        id.setText(personList.get(position).getId());
-        name.setText(personList.get(position).getName());
-        age.setText(personList.get(position).getAge());
+        id.setText(personList.get(position).getObj1());
+        name.setText(personList.get(position).getObj2());
 
         return convertView;
     }

@@ -3,21 +3,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView android:layout_width="100dip"
+
+    <TextView android:layout_width="200dip"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dip"
         android:textSize="20dip"
-        android:id="@+id/id"/>
-    <TextView android:layout_width="100dip"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/id"
-        android:layout_toRightOf="@id/id"
-        android:textSize="20dip"
-        android:id="@+id/name"/>
+        android:id="@+id/obj"/>
+
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/name"
-        android:layout_toRightOf="@id/name"
+        android:layout_alignTop="@id/obj"
+        android:layout_toRightOf="@id/obj"
         android:textSize="20dip"
-        android:id="@+id/age"/>
+        android:id="@+id/obj2"/>
 </RelativeLayout>

@@ -46,9 +46,9 @@ public class ComSecondListViewActivity extends Activity {
         personList.add(new Person("zhaolei","赵磊","21"));
 
         ListView mylistview =  (ListView)findViewById(R.id.contnet_listView);
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
-
-        mylistview.setAdapter(perAdapter);
+//        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
+//
+//        mylistview.setAdapter(perAdapter);
 
         /**
          * 动态加载类

@@ -70,34 +70,21 @@ public class DrinksafeActivity extends Activity {
         personList2 = new ArrayList<TwoParams>();
 
         initData();
-
     }
 
-    public  void  showViewData(){
-//        List<Person> personList = new ArrayList<Person>();
-//        personList.add(new Person("zhangfei","张飞","38"));
-//        personList.add(new Person("liwang","李王","12"));
-//        personList.add(new Person("xiaoming","小明","24"));
-//        personList.add(new Person("zhaolei","赵磊","21"));
+    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
 
-//        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,personList);
-//        SZ_listView.setAdapter(perAdapter);
+        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
+        SZ_listView.setAdapter(perAdapter);
 
-//        personList = new ArrayList<Person>();
-//        personList.add(new Person("zhangfei","xxx","12"));
-//        personList.add(new Person("liwang","ttt","23"));
-//        personList.add(new Person("xiaoming","vvv","34"));
-//        personList.add(new Person("zhaolei", "eee", "45"));
-
-//       // PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,personList);
-//        XD_listView.setAdapter(perAdapter);
-
+        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
+        XD_listView.setAdapter(perAdapter);
     }
 
     /**
      * 测试方式测试数据是否可以按照新方式调用
      */
-    public static void initData() {
+    public  void initData() {
         List<RequestParameter>    parameters =
                   WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
 
@@ -122,7 +109,7 @@ public class DrinksafeActivity extends Activity {
                             Message msg =  new Message();
                             msg.what=111;
                             msg.obj = pList;
-                            //DrinksafeActivity.this.mHandler.sendMessage(msg);
+                            mHandler.sendMessage(msg);
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -143,7 +130,7 @@ public class DrinksafeActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-
+                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
                     break;
                 case  112:
 
