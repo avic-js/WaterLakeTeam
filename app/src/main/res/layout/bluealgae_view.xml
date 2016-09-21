@@ -33,11 +33,11 @@
                         android:textColor="#1ff"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="沙渚(环保局)"
+                        android:text="@string/shuiliju"
                         android:gravity="center"
                         />
                     <TextView
-                        android:id="@+id/SZ_time"
+                        android:id="@+id/bluealgae_time"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="21dp"
@@ -50,11 +50,11 @@
                     <com.lake.waterlake.customcomponents.MenuRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="监测时间:"
+                        android:text="@string/jc_time"
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
-                        android:layout_toLeftOf="@+id/SZ_time"
+                        android:layout_toLeftOf="@+id/bluealgae_time"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/shouye_red"
                         myradio:selfdrawableSize="20dp"
@@ -63,7 +63,7 @@
                         />
                 </RelativeLayout>
                 <ListView
-                    android:id="@+id/SZ_listView"
+                    android:id="@+id/bluealgae_listView"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:horizontalSpacing="0.0dip"
@@ -71,62 +71,6 @@
                     android:verticalSpacing="0.0dip"
                     android:layout_centerVertical="true"
                     android:layout_below="@+id/title_listView"
-                    />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RelativeLayout
-                    android:id="@+id/title_listView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp">
-                    <TextView
-                        android:id="@+id/kindName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18dp"
-                        android:textColor="#1ff"
-                        android:layout_marginLeft="15dp"
-                        android:layout_alignParentLeft="true"
-                        android:text="锡东(环保局)"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:id="@+id/XD_time2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="21dp"
-                        android:textColor="#1ff"
-                        android:text="2016/12/01"
-                        android:layout_marginRight="5dp"
-                        android:layout_alignParentRight="true"
-                        android:gravity="center"
-                        />
-                    <com.lake.waterlake.customcomponents.MenuRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="监测时间:"
-                        android:button="@null"
-                        android:checked="true"
-                        android:clickable="true"
-                        android:layout_toLeftOf="@+id/XD_time2"
-                        android:textSize="12dp"
-                        myradio:drawableLeft="@drawable/shouye_red"
-                        myradio:selfdrawableSize="20dp"
-                        android:gravity="center"
-                        android:layout_marginRight="5dp"
-                        />
-                </RelativeLayout>
-                <ListView
-                    android:id="@+id/XD_listView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:horizontalSpacing="0.0dip"
-                    android:scrollbars="none"
-                    android:verticalSpacing="0.0dip"
-                    android:layout_centerVertical="true"
-                    android:layout_below="@+id/title_listView2"
                     />
             </RelativeLayout>
         </LinearLayout>

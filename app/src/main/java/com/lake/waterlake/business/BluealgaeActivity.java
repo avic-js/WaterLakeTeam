@@ -33,20 +33,19 @@ import java.util.List;
  */
 public class BluealgaeActivity extends Activity {
 
-    TextView SZ_time; //沙渚监测时间
-    TextView XD_time2;//锡东监测时间
-    ListView SZ_listView;//沙渚列表
-    ListView XD_listView;//锡东列表
+    TextView bluealgae_time; //监测时间
+
+    ListView bluealgae_listView;//
+
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
     public List<TwoParams> personList;
-    public  List<TwoParams> personList2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
         setContentView(R.layout.drinksafe_view);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText(R.string.bluealgae);
@@ -58,12 +57,11 @@ public class BluealgaeActivity extends Activity {
             }
         });
 
-        SZ_time =  (TextView)findViewById(R.id.SZ_time);
-        XD_time2 =(TextView)findViewById(R.id.XD_time2);
-        SZ_listView = (ListView)findViewById(R.id.SZ_listView);
-        XD_listView = (ListView)findViewById(R.id.XD_listView2);
+        bluealgae_time =  (TextView)findViewById(R.id.bluealgae_time);
+
+        bluealgae_listView = (ListView)findViewById(R.id.bluealgae_listView);
+
         personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
 
         initData();
     }
@@ -71,10 +69,8 @@ public class BluealgaeActivity extends Activity {
     public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
 
         PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        SZ_listView.setAdapter(perAdapter);
+        bluealgae_listView.setAdapter(perAdapter);
 
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
-        XD_listView.setAdapter(perAdapter);
     }
 
     /**

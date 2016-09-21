@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
+import com.lake.waterlake.customAdapter.TwoParamsAdapter;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
@@ -70,10 +71,10 @@ public class DrinksafeActivity extends Activity {
 
     public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
+        TwoParamsAdapter perAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
         SZ_listView.setAdapter(perAdapter);
 
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
+        TwoParamsAdapter perAdapter2 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
         XD_listView.setAdapter(perAdapter);
     }
 

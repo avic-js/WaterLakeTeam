@@ -19,4 +19,8 @@
     <string name="transferWater">调水引流</string>
     <string name="weather">气象水文</string>
 
+    <string name="shazhu">沙渚(环保局)</string>
+    <string name="xidong">锡东(环保局)</string>
+    <string name="jc_time">监测时间:</string>
+    <string name="shuiliju">(水利局)</string>
 </resources>

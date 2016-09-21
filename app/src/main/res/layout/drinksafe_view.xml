@@ -33,7 +33,7 @@
                         android:textColor="#1ff"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="沙渚(环保局)"
+                        android:text="@string/shazhu"
                         android:gravity="center"
                         />
                     <TextView
@@ -50,7 +50,7 @@
                     <com.lake.waterlake.customcomponents.MenuRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="监测时间:"
+                        android:text="@string/jc_time"
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
@@ -89,7 +89,7 @@
                         android:textColor="#1ff"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="锡东(环保局)"
+                        android:text="@string/xidong"
                         android:gravity="center"
                         />
                     <TextView
@@ -106,7 +106,7 @@
                     <com.lake.waterlake.customcomponents.MenuRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="监测时间:"
+                        android:text="@string/jc_time"
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
