@@ -65,7 +65,7 @@
                 <ListView
                     android:id="@+id/bluealgae_listView"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="320dp"
                     android:horizontalSpacing="0.0dip"
                     android:scrollbars="none"
                     android:verticalSpacing="0.0dip"

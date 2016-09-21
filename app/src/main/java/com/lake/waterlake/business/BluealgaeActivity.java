@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
+import com.lake.waterlake.customAdapter.ThreeParamsAdapter;
+import com.lake.waterlake.model.ThreeParams;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
@@ -40,41 +42,41 @@ public class BluealgaeActivity extends Activity {
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
-    public List<TwoParams> personList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.drinksafe_view);
+        setContentView(R.layout.bluealgae_view);// initView
         title_text =(TextView)findViewById(R.id.title_center_text);
-        title_text.setText(R.string.bluealgae);
+        title_text.setText(R.string.bluealgae);// set title name
         back_Btn = (Button)findViewById(R.id.back_btn);
         back_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
+        });// set btn click event
 
-        bluealgae_time =  (TextView)findViewById(R.id.bluealgae_time);
+        bluealgae_time =  (TextView)findViewById(R.id.bluealgae_time);// set time
 
-        bluealgae_listView = (ListView)findViewById(R.id.bluealgae_listView);
-
-        personList = new ArrayList<TwoParams>();
+        bluealgae_listView = (ListView)findViewById(R.id.bluealgae_listView);//set listview
 
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    /**
+     * set body content
+     * @param obj
+     */
+    public  void  showViewData(List<ThreeParams> obj){
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        bluealgae_listView.setAdapter(perAdapter);
+        ThreeParamsAdapter threeAdapter = new ThreeParamsAdapter(this,R.layout.threeparams_view,obj);
+        bluealgae_listView.setAdapter(threeAdapter);
 
     }
 
     /**
-     * 调用数据
+     * call business data
      */
     public  void initData() {
         List<RequestParameter>    parameters =
@@ -85,12 +87,12 @@ public class BluealgaeActivity extends Activity {
                     public void onSuccess(String str) {
                         try {
                             JSONArray jarray = new JSONArray(str);
-                            List<TwoParams> pList = new ArrayList<TwoParams>();
+                            List<ThreeParams> pList = new ArrayList<ThreeParams>();
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 String proName    = jsonObj.getString("ProName");
                                 String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+                                pList.add(new ThreeParams(proName, rank,proName));
                             }
                             // handler send data
                             Message msg =  new Message();
@@ -114,13 +116,14 @@ public class BluealgaeActivity extends Activity {
     }
 
     /**
-     * 异步回调,更新页面数据
+     * async call, update page data
+     *
      */
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showViewData((List<ThreeParams>)msg.obj);
                     break;
                 case  112:
 
