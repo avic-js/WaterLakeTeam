@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
+import com.lake.waterlake.customAdapter.SixParamsAdapter;
+import com.lake.waterlake.customAdapter.TwoParamsAdapter;
+import com.lake.waterlake.model.SixParams;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
@@ -33,21 +36,19 @@ import java.util.List;
  */
 public class WeatherActivity extends Activity {
 
-    TextView SZ_time; //沙渚监测时间
-    TextView XD_time2;//锡东监测时间
-    ListView SZ_listView;//沙渚列表
-    ListView XD_listView;//锡东列表
+    TextView weather_time; //气象局监测时间
+    TextView temper_time;//南拳站监测时间
+    ListView weather_listView;//气象局
+    ListView temper_listView;//水表气温
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
-    public List<TwoParams> personList;
-    public  List<TwoParams> personList2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
-        setContentView(R.layout.drinksafe_view);
+        setContentView(R.layout.weather);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText(R.string.weather);
         back_Btn = (Button)findViewById(R.id.back_btn);
@@ -58,23 +59,22 @@ public class WeatherActivity extends Activity {
             }
         });
 
-        SZ_time =  (TextView)findViewById(R.id.SZ_time);
-        XD_time2 =(TextView)findViewById(R.id.XD_time2);
-        SZ_listView = (ListView)findViewById(R.id.SZ_listView);
-        XD_listView = (ListView)findViewById(R.id.XD_listView2);
-        personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
+        weather_time =  (TextView)findViewById(R.id.weather_time);
+        temper_time =(TextView)findViewById(R.id.temper_time);
+        weather_listView = (ListView)findViewById(R.id.weather_listView);
+        temper_listView = (ListView)findViewById(R.id.temper_listView);
+
 
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    public  void  showViewData(List<SixParams> obj,List<TwoParams> obj1){
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        SZ_listView.setAdapter(perAdapter);
+        SixParamsAdapter sixAdapter = new SixParamsAdapter(this,R.layout.sixparams_view,obj);
+        weather_listView.setAdapter(sixAdapter);
 
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
-        XD_listView.setAdapter(perAdapter);
+//       TwoParamsAdapter twoAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+//        temper_listView.setAdapter(twoAdapter);
     }
 
     /**
@@ -82,30 +82,34 @@ public class WeatherActivity extends Activity {
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.weekweather", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
                     public void onSuccess(String str) {
                         try {
                             JSONArray jarray = new JSONArray(str);
-                            List<TwoParams> pList = new ArrayList<TwoParams>();
+                            List<SixParams> pList = new ArrayList<SixParams>();
+                            pList.add(new SixParams("日期","天气","风向","风力","低温","高温"));
                             for (int i=0;i<jarray.length();i++){
+
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+                                String obj    = jsonObj.getString("ProCol_51");
+                                String obj1    = jsonObj.getString("ProCol_31");
+                                String obj2    = jsonObj.getString("ProCol_32");
+                                String obj3    = jsonObj.getString("ProCol_33");
+                                String obj4    = jsonObj.getString("ProCol_35");
+                                String obj5    = jsonObj.getString("ProCol_34");
+                                pList.add(new SixParams(obj,obj1,obj2,obj3,obj4,obj5));
                             }
                             // handler send data
                             Message msg =  new Message();
                             msg.what=111;
                             msg.obj = pList;
                             mHandler.sendMessage(msg);
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                     }
 
                     @Override
@@ -124,7 +128,7 @@ public class WeatherActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showViewData((List<SixParams>)msg.obj,(List<TwoParams>)msg.obj);
                     break;
                 case  112:
 

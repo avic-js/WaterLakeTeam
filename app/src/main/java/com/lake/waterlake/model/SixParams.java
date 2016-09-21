@@ -1,23 +1,25 @@
 package com.lake.waterlake.model;
 
 /**
- * Created by yyh on 16/9/9.
+ * Created by yyh on 16/9/21.
  */
-public class FiveParams {
+public class SixParams {
+
+    public SixParams(String obj1, String obj2, String obj3, String obj4, String obj5, String obj6) {
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+        this.obj3 = obj3;
+        this.obj4 = obj4;
+        this.obj5 = obj5;
+        this.obj6 = obj6;
+    }
 
     private  String obj1;
     private  String obj2;
     private  String obj3;
     private  String obj4;
     private  String obj5;
-
-    public FiveParams(String obj1, String obj2, String obj3, String obj4, String obj5) {
-        this.obj1 = obj1;
-        this.obj2 = obj2;
-        this.obj3 = obj3;
-        this.obj4 = obj4;
-        this.obj5 = obj5;
-    }
+    private  String obj6;
 
 
     public String getObj1() {
@@ -58,5 +60,13 @@ public class FiveParams {
 
     public void setObj5(String obj5) {
         this.obj5 = obj5;
+    }
+
+    public String getObj6() {
+        return obj6;
+    }
+
+    public void setObj6(String obj6) {
+        this.obj6 = obj6;
     }
 }

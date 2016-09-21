@@ -80,7 +80,7 @@ public class BluealgaeActivity extends Activity {
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.bluealgae", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -88,11 +88,13 @@ public class BluealgaeActivity extends Activity {
                         try {
                             JSONArray jarray = new JSONArray(str);
                             List<ThreeParams> pList = new ArrayList<ThreeParams>();
+                            pList.add(new ThreeParams("类别","当日情况","累计情况"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new ThreeParams(proName, rank,proName));
+                                String obj1  = jsonObj.getString("ProCol_44");
+                                String obj2 = jsonObj.getString("ProCol_43");
+                                String obj = jsonObj.getString("a_uid");
+                                pList.add(new ThreeParams(obj,obj1,obj2));
                             }
                             // handler send data
                             Message msg =  new Message();
