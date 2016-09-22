@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
+import com.lake.waterlake.customAdapter.FourParamsAdapter;
 import com.lake.waterlake.customAdapter.PersonAdapter;
+import com.lake.waterlake.model.FourParams;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
@@ -33,10 +35,10 @@ import java.util.List;
  */
 public class TransferWaterActivity extends Activity {
 
-    TextView SZ_time; //沙渚监测时间
-    TextView XD_time2;//锡东监测时间
-    ListView SZ_listView;//沙渚列表
-    ListView XD_listView;//锡东列表
+    TextView transfer_time; //transfer监测时间
+
+    ListView transfer_listView;//transfer列表
+
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
@@ -47,7 +49,7 @@ public class TransferWaterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
-        setContentView(R.layout.drinksafe_view);
+        setContentView(R.layout.transferwater_view);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText(R.string.transferWater);
         back_Btn = (Button)findViewById(R.id.back_btn);
@@ -58,23 +60,17 @@ public class TransferWaterActivity extends Activity {
             }
         });
 
-        SZ_time =  (TextView)findViewById(R.id.SZ_time);
-        XD_time2 =(TextView)findViewById(R.id.XD_time2);
-        SZ_listView = (ListView)findViewById(R.id.SZ_listView);
-        XD_listView = (ListView)findViewById(R.id.XD_listView2);
-        personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
+        transfer_time =  (TextView)findViewById(R.id.transfer_time);
+
+        transfer_listView = (ListView)findViewById(R.id.transfer_listView);
 
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    public  void  showViewData(List<FourParams> obj){
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        SZ_listView.setAdapter(perAdapter);
-
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
-        XD_listView.setAdapter(perAdapter);
+        FourParamsAdapter  fourAdapter = new FourParamsAdapter(this,R.layout.fourparams_view,obj);
+        transfer_listView.setAdapter(fourAdapter);
     }
 
     /**
@@ -82,32 +78,32 @@ public class TransferWaterActivity extends Activity {
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.transferWater", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
                     public void onSuccess(String str) {
                         try {
                             JSONArray jarray = new JSONArray(str);
-                            List<TwoParams> pList = new ArrayList<TwoParams>();
+                            List<FourParams> pList = new ArrayList<FourParams>();
+                            pList.add(new FourParams("站点","平均流量","当日水量","当年水量"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+                                String obj    = jsonObj.getString("PointName");
+                                String obj1 =  jsonObj.getString("ProCol_40");
+                                String obj2 =  jsonObj.getString("ProCol_41");
+                                String obj3 =  jsonObj.getString("ProCol_42");
+                                pList.add(new FourParams(obj,obj1,obj2,obj3));
                             }
                             // handler send data
                             Message msg =  new Message();
                             msg.what=111;
                             msg.obj = pList;
                             mHandler.sendMessage(msg);
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                     }
-
                     @Override
                     public void onFail(Exception e) {
                         e.printStackTrace();
@@ -124,7 +120,7 @@ public class TransferWaterActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showViewData((List<FourParams>)msg.obj);
                     break;
                 case  112:
 

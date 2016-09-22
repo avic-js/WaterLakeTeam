@@ -5,19 +5,24 @@
     android:orientation="vertical">
     <TextView
         android:id="@+id/obj"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
-        android:textSize="20dip"
+        android:layout_alignParentLeft="true"
+        android:textSize="18dp"
         />
 
     <TextView
         android:id="@+id/obj1"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj"
-        android:textSize="20dip"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:paddingRight="5dp"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
         />
     <TextView
         android:id="@+id/obj2"
@@ -25,15 +30,19 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj1"
-        android:textSize="20dip"
+        android:layout_centerVertical="true"
+
+        android:paddingRight="15dp"
+        android:textSize="18dp"
         />
     <TextView
         android:id="@+id/obj3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
-        android:layout_toRightOf="@id/obj2"
-        android:textSize="20dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dip"
+        android:textSize="18dp"
         />
 
 
