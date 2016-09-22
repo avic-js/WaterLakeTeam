@@ -91,9 +91,9 @@ public class BluealgaeActivity extends Activity {
                             pList.add(new ThreeParams("类别","当日情况","累计情况"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String obj1  = jsonObj.getString("ProCol_44");
-                                String obj2 = jsonObj.getString("ProCol_43");
-                                String obj = jsonObj.getString("a_uid");
+                                String obj1  = jsonObj.getString("ProCol_43");
+                                String obj2 = jsonObj.getString("ProCol_44");
+                                String obj = jsonObj.getString("PointName");
                                 pList.add(new ThreeParams(obj,obj1,obj2));
                             }
                             // handler send data
