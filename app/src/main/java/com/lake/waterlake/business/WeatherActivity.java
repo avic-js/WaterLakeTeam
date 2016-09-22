@@ -64,23 +64,28 @@ public class WeatherActivity extends Activity {
         weather_listView = (ListView)findViewById(R.id.weather_listView);
         temper_listView = (ListView)findViewById(R.id.temper_listView);
 
-
         initData();
     }
-
-    public  void  showViewData(List<SixParams> obj,List<TwoParams> obj1){
+   // show one week data
+    public  void  showWeatherViewData(List<SixParams> obj){
 
         SixParamsAdapter sixAdapter = new SixParamsAdapter(this,R.layout.sixparams_view,obj);
         weather_listView.setAdapter(sixAdapter);
 
-//       TwoParamsAdapter twoAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
-//        temper_listView.setAdapter(twoAdapter);
     }
+    //show surface Temper
+    public  void  showTemperViewData(List<TwoParams> obj){
+
+        TwoParamsAdapter twoAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
+        temper_listView.setAdapter(twoAdapter);
+    }
+
 
     /**
      * 调用数据
      */
     public  void initData() {
+        // load one week day
         List<RequestParameter>    parameters =
                 WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.weekweather", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
@@ -119,6 +124,44 @@ public class WeatherActivity extends Activity {
                 });
         DefaultThreadPool.getInstance().execute(httpget);
         BaseRequest.getBaseRequests().add(httpget);
+
+        // load weather_station
+            parameters =
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.facetemp", null, null);
+            httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
+                new RequestResultCallback() {
+                    @Override
+                    public void onSuccess(String str) {
+                        try {
+                            JSONArray jarray = new JSONArray(str);
+                            List<TwoParams> pList = new ArrayList<TwoParams>();
+                            for (int i=0;i<jarray.length();i++){
+                                JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                pList.add(new TwoParams("水表气温",jsonObj.getString("ProCol_35")));
+                                pList.add(new TwoParams("0.5米水温",jsonObj.getString("ProCol_57")));
+                                pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_58")));
+                                pList.add(new TwoParams("水底水温",jsonObj.getString("ProCol_59")));
+                            }
+
+                            // handler send data
+                            Message msg =  new Message();
+                            msg.what=112;
+                            msg.obj = pList;
+                            mHandler.sendMessage(msg);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFail(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        DefaultThreadPool.getInstance().execute(httpget);
+        BaseRequest.getBaseRequests().add(httpget);
+
+
     }
 
     /**
@@ -128,10 +171,10 @@ public class WeatherActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<SixParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showWeatherViewData((List<SixParams>) msg.obj);
                     break;
                 case  112:
-
+                    showTemperViewData((List<TwoParams>)msg.obj);
                     break;
             }
 
