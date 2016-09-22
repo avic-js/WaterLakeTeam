@@ -42,7 +42,10 @@ public class BluealgaeActivity extends Activity {
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

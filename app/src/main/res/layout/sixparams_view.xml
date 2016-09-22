@@ -9,17 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
-        android:textSize="14dp"
-
+        android:textSize="18dp"
         />
-
     <TextView
         android:id="@+id/obj1"
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj"
-        android:textSize="14dp"
+        android:textSize="18dp"
         android:paddingLeft="5dp"
         />
     <TextView
@@ -28,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj1"
-        android:textSize="14dp"
+        android:textSize="18dp"
         android:paddingLeft="5dp"
         />
     <TextView
@@ -37,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj2"
-        android:textSize="14dp"
+        android:textSize="18dp"
         android:paddingLeft="5dp"
         />
     <TextView
@@ -45,18 +43,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
-        android:layout_toRightOf="@id/obj3"
-        android:textSize="14dp"
+        android:layout_toLeftOf="@+id/obj5"
+        android:textSize="18dp"
         android:paddingLeft="5dp"
         />
     <TextView
         android:id="@+id/obj5"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
-        android:layout_toRightOf="@id/obj4"
-        android:textSize="14dp"
+        android:layout_alignParentRight="true"
+        android:textSize="18dp"
         android:paddingLeft="5dp"
         />
-
 </RelativeLayout>
