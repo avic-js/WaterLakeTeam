@@ -7,13 +7,13 @@
     <TextView android:layout_width="200dip"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dip"
-        android:textSize="20dip"
+        android:textSize="18dp"
         android:id="@+id/obj"/>
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj"
-        android:textSize="20dip"
+        android:textSize="18dp"
         android:id="@+id/obj2"/>
 </RelativeLayout>

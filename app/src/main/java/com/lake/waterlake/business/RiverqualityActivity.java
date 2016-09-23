@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
 import com.lake.waterlake.customAdapter.PersonAdapter;
+import com.lake.waterlake.customAdapter.TwoParamsAdapter;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
@@ -33,21 +34,29 @@ import java.util.List;
  */
 public class RiverqualityActivity extends Activity {
 
-    TextView SZ_time; //沙渚监测时间
-    TextView XD_time2;//锡东监测时间
-    ListView SZ_listView;//沙渚列表
-    ListView XD_listView;//锡东列表
+    TextView jc_time1; //监测时间
+    TextView jc_time2;//监测时间
+    TextView jc_time3;//监测时间
+    TextView jc_time4;//监测时间
+    TextView jc_time5;//监测时间
+    TextView jc_time6;//监测时间
+
+    ListView body_listView1;//列表
+    ListView body_listView2;//列表
+    ListView body_listView3;//列表
+    ListView body_listView4;//列表
+    ListView body_listView5;//列表
+    ListView body_listView6;//列表
+
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
-    public List<TwoParams> personList;
-    public  List<TwoParams> personList2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
-        setContentView(R.layout.drinksafe_view);
+        setContentView(R.layout.riverquality_view);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText(R.string.riverquality);
         back_Btn = (Button)findViewById(R.id.back_btn);
@@ -58,23 +67,41 @@ public class RiverqualityActivity extends Activity {
             }
         });
 
-        SZ_time =  (TextView)findViewById(R.id.SZ_time);
-        XD_time2 =(TextView)findViewById(R.id.XD_time2);
-        SZ_listView = (ListView)findViewById(R.id.SZ_listView);
-        XD_listView = (ListView)findViewById(R.id.XD_listView2);
-        personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
+        jc_time1 =  (TextView)findViewById(R.id.jc_time1);
+        jc_time2 =  (TextView)findViewById(R.id.jc_time2);
+        jc_time3 =  (TextView)findViewById(R.id.jc_time3);
+        jc_time4 =  (TextView)findViewById(R.id.jc_time4);
+        jc_time5 =  (TextView)findViewById(R.id.jc_time5);
+        jc_time6 =  (TextView)findViewById(R.id.jc_time6);
 
+        body_listView1 = (ListView)findViewById(R.id.body_listView1);
+        body_listView2 = (ListView)findViewById(R.id.body_listView2);
+        body_listView3 = (ListView)findViewById(R.id.body_listView3);
+        body_listView4 = (ListView)findViewById(R.id.body_listView4);
+        body_listView5 = (ListView)findViewById(R.id.body_listView5);
+        body_listView6 = (ListView)findViewById(R.id.body_listView6);
         initData();
     }
 
     public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        SZ_listView.setAdapter(perAdapter);
+        TwoParamsAdapter twoParamsAdapter1 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
+        body_listView1.setAdapter(twoParamsAdapter1);
 
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
-        XD_listView.setAdapter(perAdapter);
+        TwoParamsAdapter twoParamsAdapter2 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        body_listView2.setAdapter(twoParamsAdapter2);
+
+        TwoParamsAdapter twoParamsAdapter3 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        body_listView3.setAdapter(twoParamsAdapter3);
+
+        TwoParamsAdapter twoParamsAdapter4 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        body_listView4.setAdapter(twoParamsAdapter4);
+
+        TwoParamsAdapter twoParamsAdapter5 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        body_listView5.setAdapter(twoParamsAdapter5);
+
+        TwoParamsAdapter twoParamsAdapter6 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        body_listView6.setAdapter(twoParamsAdapter6);
     }
 
     /**
@@ -82,19 +109,26 @@ public class RiverqualityActivity extends Activity {
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.riverquality", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
                     public void onSuccess(String str) {
                         try {
                             JSONArray jarray = new JSONArray(str);
-                            List<TwoParams> pList = new ArrayList<TwoParams>();
+                            List<List<TwoParams>> allList =  new ArrayList<List<TwoParams>>();
+                            List<TwoParams> pList=null;
                             for (int i=0;i<jarray.length();i++){
+                                pList = new ArrayList<TwoParams>();
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_1")));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_2")));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_3")));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_4")));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_5")));//水质评价
+                                pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_8")));//PH
+                                pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_9")));//溶解氧
+                                allList.add(pList);
                             }
                             // handler send data
                             Message msg =  new Message();

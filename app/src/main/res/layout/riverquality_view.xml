@@ -30,18 +30,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="18dp"
-                        android:textColor="#1ff"
+                        android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="沙渚(环保局)"
+                        android:text="望虞河沙墩港桥"
                         android:gravity="center"
                         />
                     <TextView
-                        android:id="@+id/SZ_time"
+                        android:id="@+id/jc_time1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="21dp"
-                        android:textColor="#1ff"
+                        android:textColor="#1af"
                         android:text="2016/12/01"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
@@ -54,7 +54,7 @@
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
-                        android:layout_toLeftOf="@+id/SZ_time"
+                        android:layout_toLeftOf="@+id/jc_time1"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/shouye_red"
                         myradio:selfdrawableSize="20dp"
@@ -63,9 +63,9 @@
                         />
                 </RelativeLayout>
                 <ListView
-                    android:id="@+id/SZ_listView"
+                    android:id="@+id/body_listView1"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="180dp"
                     android:horizontalSpacing="0.0dip"
                     android:scrollbars="none"
                     android:verticalSpacing="0.0dip"
@@ -86,18 +86,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="18dp"
-                        android:textColor="#1ff"
+                        android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="锡东(环保局)"
+                        android:text="京杭运河金城桥"
                         android:gravity="center"
                         />
                     <TextView
-                        android:id="@+id/XD_time2"
+                        android:id="@+id/jc_time2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="21dp"
-                        android:textColor="#1ff"
+                        android:textColor="#1af"
                         android:text="2016/12/01"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
@@ -110,7 +110,7 @@
                         android:button="@null"
                         android:checked="true"
                         android:clickable="true"
-                        android:layout_toLeftOf="@+id/XD_time2"
+                        android:layout_toLeftOf="@+id/jc_time2"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/shouye_red"
                         myradio:selfdrawableSize="20dp"
@@ -119,9 +119,9 @@
                         />
                 </RelativeLayout>
                 <ListView
-                    android:id="@+id/XD_listView2"
+                    android:id="@+id/body_listView2"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="180dp"
                     android:horizontalSpacing="0.0dip"
                     android:scrollbars="none"
                     android:verticalSpacing="0.0dip"
@@ -129,6 +129,231 @@
                     android:layout_below="@+id/title_listView2"
                     />
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/title_listView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:id="@+id/kindName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1af"
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:text="梁溪河景宜桥"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:id="@+id/jc_time3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="21dp"
+                        android:textColor="#1af"
+                        android:text="2016/12/01"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        />
+                    <com.lake.waterlake.customcomponents.MenuRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="监测时间:"
+                        android:button="@null"
+                        android:checked="true"
+                        android:clickable="true"
+                        android:layout_toLeftOf="@+id/jc_time3"
+                        android:textSize="12dp"
+                        myradio:drawableLeft="@drawable/shouye_red"
+                        myradio:selfdrawableSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp"
+                        />
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/body_listView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:horizontalSpacing="0.0dip"
+                    android:scrollbars="none"
+                    android:verticalSpacing="0.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/title_listView3"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/title_listView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:id="@+id/kindName4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1af"
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:text="直湖港直湖港闸内"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:id="@+id/jc_time4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="21dp"
+                        android:textColor="#1af"
+                        android:text="2016/12/01"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        />
+                    <com.lake.waterlake.customcomponents.MenuRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="监测时间:"
+                        android:button="@null"
+                        android:checked="true"
+                        android:clickable="true"
+                        android:layout_toLeftOf="@+id/jc_time4"
+                        android:textSize="12dp"
+                        myradio:drawableLeft="@drawable/shouye_red"
+                        myradio:selfdrawableSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp"
+                        />
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/body_listView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:horizontalSpacing="0.0dip"
+                    android:scrollbars="none"
+                    android:verticalSpacing="0.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/title_listView4"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/title_listView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:id="@+id/kindName5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1af"
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:text="武进港武进港闸内"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:id="@+id/jc_time5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="21dp"
+                        android:textColor="#1af"
+                        android:text="2016/12/01"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        />
+                    <com.lake.waterlake.customcomponents.MenuRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="监测时间:"
+                        android:button="@null"
+                        android:checked="true"
+                        android:clickable="true"
+                        android:layout_toLeftOf="@+id/jc_time5"
+                        android:textSize="12dp"
+                        myradio:drawableLeft="@drawable/shouye_red"
+                        myradio:selfdrawableSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp"
+                        />
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/body_listView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:horizontalSpacing="0.0dip"
+                    android:scrollbars="none"
+                    android:verticalSpacing="0.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/title_listView5"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/title_listView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:id="@+id/kindName6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1af"
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:text="闾江口神骏桥"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:id="@+id/jc_time6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="21dp"
+                        android:textColor="#1af"
+                        android:text="2016/12/01"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        />
+                    <com.lake.waterlake.customcomponents.MenuRadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="监测时间:"
+                        android:button="@null"
+                        android:checked="true"
+                        android:clickable="true"
+                        android:layout_toLeftOf="@+id/jc_time6"
+                        android:textSize="12dp"
+                        myradio:drawableLeft="@drawable/shouye_red"
+                        myradio:selfdrawableSize="20dp"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp"
+                        />
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/body_listView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:horizontalSpacing="0.0dip"
+                    android:scrollbars="none"
+                    android:verticalSpacing="0.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/title_listView6"
+                    />
+            </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

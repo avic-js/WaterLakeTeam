@@ -1,6 +1,11 @@
 package com.lake.waterlake.home;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,13 +65,33 @@ public class FrameListViewAdapter extends BaseAdapter {
         ImageView head_img = BaseViewHolder.get(convertView,R.id.header_list);
         TextView cs_name = BaseViewHolder.get(convertView,R.id.cs_name);
         TextView cs_value = BaseViewHolder.get(convertView,R.id.cs_value);
+        TextView cs_value1 = BaseViewHolder.get(convertView,R.id.cs_value1);
         TextView cs_time = BaseViewHolder.get(convertView,R.id.cs_time);
+
 
         head_img.setBackgroundResource(head_imgs[position]);
         cs_name.setText(cs_names[position]);
-        cs_value.setText(cs_values[position]);
-        cs_time.setText(cs_times[position]);
+        if (position!=1 && position!=0) {
+            String xidong = "锡东:".concat(cs_values[position]);
+            String shazhu = "沙渚:".concat(cs_values[position]);
+            SpannableStringBuilder xd_style = new SpannableStringBuilder(xidong);
+            // style.setSpan(new BackgroundColorSpan(Color.RED), 2, 5, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置textview的背景颜色
+            xd_style.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 3, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
 
+            SpannableStringBuilder sz_style = new SpannableStringBuilder(shazhu);
+            sz_style.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 3, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+
+            cs_value.setText(xd_style);
+            cs_value1.setText(sz_style);
+
+        }else {
+            String topVal = "    ".concat(cs_values[position]);
+            SpannableStringBuilder xd_style = new SpannableStringBuilder(topVal);
+            cs_value.setText(xd_style);
+            cs_value1.setText("");
+           // cs_value1.setHeight(0);
+        }
+        cs_time.setText(cs_times[position]);
         return convertView;
     }
 }

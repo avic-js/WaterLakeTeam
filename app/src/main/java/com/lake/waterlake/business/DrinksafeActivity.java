@@ -63,19 +63,17 @@ public class DrinksafeActivity extends Activity {
         XD_time2 =(TextView)findViewById(R.id.XD_time2);
         SZ_listView = (ListView)findViewById(R.id.SZ_listView);
         XD_listView = (ListView)findViewById(R.id.XD_listView2);
-        personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
 
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    public  void  showViewData(List<List<TwoParams>> obj){
 
-        TwoParamsAdapter perAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
-        SZ_listView.setAdapter(perAdapter);
+        TwoParamsAdapter SZAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj.get(1));
+        SZ_listView.setAdapter(SZAdapter);
 
-        TwoParamsAdapter perAdapter2 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
-        XD_listView.setAdapter(perAdapter);
+        TwoParamsAdapter XDAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj.get(0));
+        XD_listView.setAdapter(XDAdapter);
     }
 
     /**
@@ -83,24 +81,31 @@ public class DrinksafeActivity extends Activity {
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                  WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                  WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.drinksafe", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
                     public void onSuccess(String str) {
                         try {
                             JSONArray jarray = new JSONArray(str);
-                           List<TwoParams> pList = new ArrayList<TwoParams>();
+                            List<List<TwoParams>> allList =  new ArrayList<List<TwoParams>>();
+                           List<TwoParams> pList = null;
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+                                pList = new ArrayList<TwoParams>();
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_4")));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_5")));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_6")));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_9")));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_45")));//水质评价
+                                pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_1")));//PH
+                                pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_2")));//溶解氧
+                                allList.add(pList);
                             }
                             // handler send data
                             Message msg =  new Message();
                             msg.what=111;
-                            msg.obj = pList;
+                            msg.obj = allList;
                             mHandler.sendMessage(msg);
 
                         } catch (Exception e) {
@@ -125,7 +130,7 @@ public class DrinksafeActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showViewData((List<List<TwoParams>>)msg.obj);
                     break;
                 case  112:
 

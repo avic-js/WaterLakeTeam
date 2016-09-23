@@ -12,7 +12,7 @@
     <string name="office">办公</string>
     <string name="visit">巡视</string>
 
-    <string name="bluealgae">蓝藻胡滥</string>
+    <string name="bluealgae">蓝藻胡泛</string>
     <string name="drinksafe">饮水安全</string>
     <string name="riverquality">河道水质</string>
     <string name="satellite">卫星遥感</string>
@@ -23,4 +23,13 @@
     <string name="xidong">锡东(环保局)</string>
     <string name="jc_time">监测时间:</string>
     <string name="shuiliju">(水利局)</string>
+
+    <string name="NH3">氨氮(mg/L)</string>
+    <string name="TN">总氮(mg/L)</string>
+    <string name="TP">总磷(mg/L)</string>
+    <string name="algae">藻密度(万个/升)</string>
+    <string name="NAWQA">水质评价(类)</string>
+    <string name="PH">PH</string>
+    <string name="DO">溶解氧(mg/L)</string>
+
 </resources>
