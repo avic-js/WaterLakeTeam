@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--查询列表-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:myradio="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+    <include android:id="@+id/includeTitle"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        layout="@layout/title_view_option" />
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal" >
+        <LinearLayout
+            android:id="@+id/root_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/title_query"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/queryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22dp"
+                    android:textColor="#1ff"
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentLeft="true"
+                    android:text=" 筛选条件"
+                    android:gravity="center"
+                    />
+
+            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/title_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:id="@+id/deptName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1ff"
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:text=" 部门:"
+                        android:gravity="center"
+                        />
+                    <Spinner
+                        android:id="@+id/spinnerDpt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="75dp"
+                        android:layout_alignParentLeft="true"
+                        android:entries="@array/department"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/title1_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/query_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp"
+                        android:textColor="#1ff"
+                        android:text="时间："
+                        android:layout_marginLeft="15dp"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        />
+                    <Spinner
+                        android:id="@+id/spinnerTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="75dp"
+                        android:layout_alignParentLeft="true"
+                        android:visibility="visible"
+                        android:entries="@array/queryt"
+                        />
+
+                    <!--<RadioGroup-->
+                        <!--android:id="@+id/queryTime"-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="180dp"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:layout_marginLeft="75dp"-->
+                        <!--android:layout_marginTop="78dp"-->
+                        <!--android:layout_alignParentLeft="true"-->
+                        <!-->-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:id="@+id/today"-->
+                            <!--android:text="当天"/>-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:id="@+id/week"-->
+                            <!--android:text="本周"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/month"-->
+                            <!--android:text="近三月"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content" />-->
+
+                    <!--</RadioGroup>-->
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/query_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:horizontalSpacing="0.0dip"
+                    android:scrollbars="none"
+                    android:verticalSpacing="0.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/title_listView"
+                    />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
