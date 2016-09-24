@@ -23,14 +23,14 @@ public class QueryFragment extends LazyFragment{
     private ArrayAdapter<CharSequence> adapterCity = null;
     @Override
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        view =  inflater.inflate(R.layout.query_frame,container,false);
-//        //静态实现的下拉框，数据写在query_frame.xml文件中
-//        spinnerDpt =(Spinner)view.findViewById(R.id.spinnerDpt);
-//        spinnerDpt.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
-//        //动态实现的下拉框，数据在程序中获得，实际项目可能来自数据库等
-//        spinnerTime = (Spinner)view.findViewById(R.id.spinnerTime);
-////        spinnerTime.setAdapter(adapterCity);
-//        spinnerTime.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
+        view =  inflater.inflate(R.layout.query_frame,container,false);
+        //静态实现的下拉框，数据写在query_frame.xml文件中
+        spinnerDpt =(Spinner)view.findViewById(R.id.spinnerDpt);
+        spinnerDpt.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
+        //动态实现的下拉框，数据在程序中获得，实际项目可能来自数据库等
+        spinnerTime = (Spinner)view.findViewById(R.id.spinnerTime);
+//        spinnerTime.setAdapter(adapterCity);
+        spinnerTime.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
         return view;
 
     }
@@ -45,8 +45,8 @@ public class QueryFragment extends LazyFragment{
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int position, long id) {
             String time = spinnerTime.getSelectedItem().toString();
-//            parent.getItemAtPosition(position).toString();
-             String dept=spinnerDpt.getSelectedItem().toString();
+//          parent.getItemAtPosition(position).toString();
+            String dept=spinnerDpt.getSelectedItem().toString();
             Toast.makeText(getActivity(), "下拉框选择是：" + time+"---"+dept,
                     Toast.LENGTH_LONG).show();
         }

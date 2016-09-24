@@ -107,13 +107,10 @@ public class DrinksafeActivity extends Activity {
                             msg.what=111;
                             msg.obj = allList;
                             mHandler.sendMessage(msg);
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                     }
-
                     @Override
                     public void onFail(Exception e) {
                         e.printStackTrace();

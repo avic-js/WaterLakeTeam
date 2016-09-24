@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +22,10 @@ public class FrameListViewAdapter extends BaseAdapter {
         super();
     }
 
-    public FrameListViewAdapter(Context mCtx,String[] mcs_value,String[] mcs_time){
+    public FrameListViewAdapter(Context mCtx,String[] mcs_valueUp,String[] mcs_valueDown,String[] mcs_time){
         this.mContext = mCtx;
-        this.cs_values = mcs_value;
+        this.cs_valuesUp = mcs_valueUp;
+        cs_valuesDown = mcs_valueDown;
         this.cs_times = mcs_time;
 
     }
@@ -37,7 +37,9 @@ public class FrameListViewAdapter extends BaseAdapter {
     public  int[] head_imgs = {R.drawable.app_aapay,R.drawable.app_aligame, R.drawable.app_appcenter,
                           R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer};
 
-    public String[] cs_values; /** params value **/
+    public String[] cs_valuesUp; /** params value **/
+
+    public String[] cs_valuesDown; /** params value **/
 
     public String[] cs_times; /** params time **/
 
@@ -72,8 +74,8 @@ public class FrameListViewAdapter extends BaseAdapter {
         head_img.setBackgroundResource(head_imgs[position]);
         cs_name.setText(cs_names[position]);
         if (position!=1 && position!=0) {
-            String xidong = "锡东:".concat(cs_values[position]);
-            String shazhu = "沙渚:".concat(cs_values[position]);
+            String xidong = "锡东:".concat(cs_valuesUp[position]);
+            String shazhu = "沙渚:".concat(cs_valuesDown[position]);
             SpannableStringBuilder xd_style = new SpannableStringBuilder(xidong);
             // style.setSpan(new BackgroundColorSpan(Color.RED), 2, 5, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置textview的背景颜色
             xd_style.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 3, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
@@ -85,7 +87,7 @@ public class FrameListViewAdapter extends BaseAdapter {
             cs_value1.setText(sz_style);
 
         }else {
-            String topVal = "    ".concat(cs_values[position]);
+            String topVal = "    ".concat(cs_valuesUp[position]);
             SpannableStringBuilder xd_style = new SpannableStringBuilder(topVal);
             cs_value.setText(xd_style);
             cs_value1.setText("");
