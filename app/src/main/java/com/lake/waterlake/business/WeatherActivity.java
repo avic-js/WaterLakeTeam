@@ -165,7 +165,7 @@ public class WeatherActivity extends Activity {
     }
 
     /**
-     * 异步回调,更新页面数据
+     * 异步回调,更新页面数据11
      */
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
