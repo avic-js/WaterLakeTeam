@@ -32,10 +32,10 @@ public class FrameListViewAdapter extends BaseAdapter {
 
     private Context mContext;
 
-    public String[] cs_names ={"太湖水位(M)","平均水温(C)","氨氮(mg/L)","总氮(mg/L)","总磷(mg/L)","藻密度(M3)"};
+    public String[] cs_names ={"太湖水位(M)","平均水温(C)","氨氮(mg/L)","总氮(mg/L)","总磷(mg/L)","藻密度(M3)","沙渚天气"};
 
     public  int[] head_imgs = {R.drawable.app_aapay,R.drawable.app_aligame, R.drawable.app_appcenter,
-                          R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer};
+                          R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer,R.drawable.app_transfer};
 
     public String[] cs_valuesUp; /** params value **/
 
@@ -73,7 +73,7 @@ public class FrameListViewAdapter extends BaseAdapter {
 
         head_img.setBackgroundResource(head_imgs[position]);
         cs_name.setText(cs_names[position]);
-        if (position!=1 && position!=0) {
+        if (position == 2 || position==3|| position==4|| position==5) {
             String xidong = "锡东:".concat(cs_valuesUp[position]);
             String shazhu = "沙渚:".concat(cs_valuesDown[position]);
             SpannableStringBuilder xd_style = new SpannableStringBuilder(xidong);
@@ -85,15 +85,28 @@ public class FrameListViewAdapter extends BaseAdapter {
 
             cs_value.setText(xd_style);
             cs_value1.setText(sz_style);
-
-        }else {
-            String topVal = "    ".concat(cs_valuesUp[position]);
+            cs_time.setText(cs_times[position]);
+        }else if(position==1 || position==0){
+            String topVal = "".concat(cs_valuesUp[position]);
             SpannableStringBuilder xd_style = new SpannableStringBuilder(topVal);
             cs_value.setText(xd_style);
             cs_value1.setText("");
-           // cs_value1.setHeight(0);
+            cs_time.setText(cs_times[position]);
+        }else {
+            String xidong = "天气:".concat(cs_valuesUp[position]);
+            String shazhu = "气温:".concat(cs_valuesDown[position]);
+            SpannableStringBuilder xd_style = new SpannableStringBuilder(xidong);
+            // style.setSpan(new BackgroundColorSpan(Color.RED), 2, 5, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置textview的背景颜色
+            xd_style.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 3, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+
+            SpannableStringBuilder sz_style = new SpannableStringBuilder(shazhu);
+            sz_style.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 3, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+
+            cs_value.setText(xd_style);
+            cs_value1.setText(sz_style);
+            cs_time.setText("");
         }
-        cs_time.setText(cs_times[position]);
+
         return convertView;
     }
 }

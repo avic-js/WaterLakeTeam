@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity=""
-        android:layout_marginRight="20dp"
+
         >
         <TextView
             android:id="@+id/cs_name"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="17dp"
             android:textColor="#000"
-            android:paddingLeft="10dp"
+            android:paddingLeft="3dp"
             />
         <LinearLayout
             android:layout_width="wrap_content"

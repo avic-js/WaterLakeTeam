@@ -44,9 +44,9 @@ public class HomeFragment extends LazyFragment{
     FrameListView flistView;
     FrameGridView fgridview;
 
-    String[] mcs_valueUp   = new String[6];
-    String[] mcs_valueDown = new String[6];
-    String[] mcs_djTime = new String[]{"2016.3.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2"};
+    String[] mcs_valueUp   = new String[7];
+    String[] mcs_valueDown = new String[7];
+    String[] mcs_djTime    = new String[7]; //new String[]{"2016.3.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2","2016.4.2"};
 
     @Override
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class HomeFragment extends LazyFragment{
         flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(), mcs_valueUp, mcs_valueDown,mcs_djTime));
     }
 
-    // load_avg_water_temper 平均水温
+    // load_avg_water_temper 平均水温 南泉气象站记录沙渚地区的数据，记录天气情况，平均水温
     public void   LoadNQAvgWaterTemperDataPart(){
         List<RequestParameter> parameters =    parameters =
                 WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.facetemp", null, null);
@@ -92,13 +92,19 @@ public class HomeFragment extends LazyFragment{
                             Float avgtemp =0f;
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i); // 南泉 4项温度求平均
-                                avgtemp = (Float.valueOf(jsonObj.getString("ProCol_35")) +
-                                                Float.valueOf(jsonObj.getString("ProCol_35"))
-                                        + Float.valueOf(jsonObj.getString("ProCol_35"))+
-                                                Float.valueOf(jsonObj.getString("ProCol_35")))/4;
+                                avgtemp = (Float.valueOf(jsonObj.getString("ProCol_57")) +
+                                                Float.valueOf(jsonObj.getString("ProCol_58"))
+                                        + Float.valueOf(jsonObj.getString("ProCol_59"))+
+                                                Float.valueOf(jsonObj.getString("ProCol_60")))/4;
+                                  mcs_djTime[1] = jsonObj.getString("upDateTime");
+
+                                mcs_valueUp[6]= jsonObj.getString("ProCol_31");
+                                mcs_valueDown[6]= jsonObj.getString("ProCol_35")+"~"+jsonObj.getString("ProCol_35");
+
                             }
                             mcs_valueUp[1]= avgtemp.toString();
                             mcs_valueDown[1]= "";
+
                             // handler send data
                             Message msg =  new Message();
                             msg.what=112;
@@ -138,6 +144,7 @@ public class HomeFragment extends LazyFragment{
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 taihu_AvgLevel =    jsonObj.getString("ProCol_39");
+                                mcs_djTime[0] = jsonObj.getString("upDateTime");
                             }
                             mcs_valueUp[0]= taihu_AvgLevel;
                             mcs_valueDown[0]= "";
@@ -171,6 +178,7 @@ public class HomeFragment extends LazyFragment{
                             JSONArray jarray = new JSONArray(str);
                             List<List<TwoParams>> allList =  new ArrayList<List<TwoParams>>();
                             List<TwoParams> pList = null;
+                            String paramTime ="";
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 pList = new ArrayList<TwoParams>();
@@ -179,6 +187,7 @@ public class HomeFragment extends LazyFragment{
                                 pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_6")));//总磷
                                 pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_9")));//藻密度
                                 allList.add(pList);
+                                paramTime = jsonObj.getString("upDateTime");
                             }
                             //pageUp data
                             List<TwoParams> szList = allList.get(0);
@@ -186,6 +195,7 @@ public class HomeFragment extends LazyFragment{
                             for (int j=0;j<szList.size();j++){
                                 mcs_valueUp[j+2]= szList.get(j).getObj2();
                                 mcs_valueDown[j+2]= xdList.get(j).getObj2();
+                                mcs_djTime[j+2] = paramTime;
                             }
 
                             // handler send data

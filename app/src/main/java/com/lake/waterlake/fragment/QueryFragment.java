@@ -47,8 +47,8 @@ public class QueryFragment extends LazyFragment{
             String time = spinnerTime.getSelectedItem().toString();
 //          parent.getItemAtPosition(position).toString();
             String dept=spinnerDpt.getSelectedItem().toString();
-            Toast.makeText(getActivity(), "下拉框选择是：" + time+"---"+dept,
-                    Toast.LENGTH_LONG).show();
+//            Toast.makeText(getActivity(), "下拉框选择是：" + time+"---"+dept,
+//                    Toast.LENGTH_LONG).show();
         }
 
         @Override
