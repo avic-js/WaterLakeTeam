@@ -17,6 +17,7 @@ import com.lake.waterlake.business.RiverqualityActivity;
 import com.lake.waterlake.business.TransferWaterActivity;
 import com.lake.waterlake.business.WeatherActivity;
 import com.lake.waterlake.business.dayReport.WCBBluealgaeDayReport;
+import com.lake.waterlake.business.dayReport.WCBMonitorDayReport;
 import com.lake.waterlake.home.*;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
@@ -264,7 +265,9 @@ public class HomeFragment extends LazyFragment{
                     case R.drawable.app_plane://
                        // startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
                         // startActivity(new Intent(getActivity(), WeatherMonitorDayReport.class));
-                        startActivity(new Intent(getActivity(), WCBBluealgaeDayReport.class));
+                       // startActivity(new Intent(getActivity(), WCBBluealgaeDayReport.class));
+                        startActivity(new Intent(getActivity(), WCBMonitorDayReport.class));
+
                         break;
                     case R.drawable.app_transfer://
                         startActivity(new Intent(getActivity(), RiverqualityActivity.class));//启动另一个Activity
