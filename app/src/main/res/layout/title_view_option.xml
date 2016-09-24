@@ -31,6 +31,6 @@
         android:maxLines="1"
         android:singleLine="true"
         android:text="@string/project_name"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:width="200dp"/>
 </RelativeLayout>

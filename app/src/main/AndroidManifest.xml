@@ -37,6 +37,12 @@
         <activity android:name=".business.SatelliteActivity"></activity>
         <activity android:name=".business.TransferWaterActivity"></activity>
         <activity android:name=".business.WeatherActivity"></activity>
+
+        <!--report Activity-->
+        <activity android:name=".business.dayReport.EPAMonitorDayReport"></activity>
+        <activity android:name=".business.dayReport.WCBBluealgaeDayReport"></activity>
+        <activity android:name=".business.dayReport.WCBMonitorDayReport"></activity>
+        <activity android:name=".business.dayReport.WeatherMonitorDayReport"></activity>
     </application>
 
 </manifest>

@@ -9,16 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
-
 import com.lake.waterlake.business.BluealgaeActivity;
 import com.lake.waterlake.business.DrinksafeActivity;
 import com.lake.waterlake.business.RiverqualityActivity;
-import com.lake.waterlake.business.SatelliteActivity;
 import com.lake.waterlake.business.TransferWaterActivity;
 import com.lake.waterlake.business.WeatherActivity;
+import com.lake.waterlake.business.dayReport.WCBBluealgaeDayReport;
 import com.lake.waterlake.home.*;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
@@ -264,7 +262,9 @@ public class HomeFragment extends LazyFragment{
 
                         break;
                     case R.drawable.app_plane://
-                        startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
+                       // startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
+                        // startActivity(new Intent(getActivity(), WeatherMonitorDayReport.class));
+                        startActivity(new Intent(getActivity(), WCBBluealgaeDayReport.class));
                         break;
                     case R.drawable.app_transfer://
                         startActivity(new Intent(getActivity(), RiverqualityActivity.class));//启动另一个Activity
