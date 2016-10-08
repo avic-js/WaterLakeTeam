@@ -161,7 +161,6 @@ public class WeatherActivity extends Activity {
         DefaultThreadPool.getInstance().execute(httpget);
         BaseRequest.getBaseRequests().add(httpget);
 
-
     }
 
     /**

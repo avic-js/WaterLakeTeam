@@ -19,9 +19,9 @@ public class FrameGridAdapter extends BaseAdapter{
 
     public String[] img_text ={"饮水安全","蓝藻胡泛","气象水文","调水引流","卫星遥感","河道水质"};
 
-    public static int[] imgs = {R.drawable.app_aapay,R.drawable.app_aligame,
-            R.drawable.app_appcenter,
-        R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer};
+    public static int[] imgs = {R.drawable.ico1_2x,R.drawable.ico2_2x,
+            R.drawable.ico3_2x,
+        R.drawable.ico4_2x,R.drawable.ico5_2x,R.drawable.ico6_2x};
 
     public FrameGridAdapter() {
         super();

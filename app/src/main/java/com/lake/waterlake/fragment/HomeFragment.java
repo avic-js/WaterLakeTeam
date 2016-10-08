@@ -121,7 +121,6 @@ public class HomeFragment extends LazyFragment{
         DefaultThreadPool.getInstance().execute(httpget);
         BaseRequest.getBaseRequests().add(httpget);
 
-
     }
     // load weather
     public void LoadWeatherDataPart(){
@@ -246,30 +245,30 @@ public class HomeFragment extends LazyFragment{
                  R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer
                  */
                 switch (FrameGridAdapter.imgs[position]) {
-                    case R.drawable.app_aapay://DrinksafeActivity
+                    case R.drawable.ico1_2x://DrinksafeActivity
                         startActivity(new Intent(getActivity(), DrinksafeActivity.class));//启动另一个Activity
 
                         break;
-                    case R.drawable.app_aligame://
+                    case R.drawable.ico2_2x://
                         startActivity(new Intent(getActivity(), BluealgaeActivity.class));//启动另一个Activity
 
                         break;
-                    case R.drawable.app_appcenter://
+                    case R.drawable.ico3_2x://
                         startActivity(new Intent(getActivity(), WeatherActivity.class));//启动另一个Activity
 
                         break;
-                    case R.drawable.app_assign://
+                    case R.drawable.ico4_2x://
                         startActivity(new Intent(getActivity(), TransferWaterActivity.class));//启动另一个Activity
 
                         break;
-                    case R.drawable.app_plane://
+                    case R.drawable.ico5_2x://
                        // startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
                         // startActivity(new Intent(getActivity(), WeatherMonitorDayReport.class));
                        // startActivity(new Intent(getActivity(), WCBBluealgaeDayReport.class));
                         startActivity(new Intent(getActivity(), WCBMonitorDayReport.class));
 
                         break;
-                    case R.drawable.app_transfer://
+                    case R.drawable.ico6_2x://
                         startActivity(new Intent(getActivity(), RiverqualityActivity.class));//启动另一个Activity
                         break;
                     default:
