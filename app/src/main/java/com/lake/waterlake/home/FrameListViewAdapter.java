@@ -34,8 +34,8 @@ public class FrameListViewAdapter extends BaseAdapter {
 
     public String[] cs_names ={"太湖水位(M)","平均水温(C)","氨氮(mg/L)","总氮(mg/L)","总磷(mg/L)","藻密度(M3)","沙渚天气"};
 
-    public  int[] head_imgs = {R.drawable.app_aapay,R.drawable.app_aligame, R.drawable.app_appcenter,
-                          R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer,R.drawable.app_transfer};
+    public  int[] head_imgs = {R.drawable.ico01_2x,R.drawable.ico02_2x, R.drawable.ico06_2x,
+                          R.drawable.ico06_2x,R.drawable.ico03_2x,R.drawable.ico04_2x,R.drawable.ico05_2x};
 
     public String[] cs_valuesUp; /** params value **/
 
