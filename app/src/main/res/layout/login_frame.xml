@@ -28,7 +28,7 @@
                 android:layout_height="96dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:src="@mipmap/login" />
+                android:src="@mipmap/logo" />
 
             <TextView
                 android:id="@+id/project_name"

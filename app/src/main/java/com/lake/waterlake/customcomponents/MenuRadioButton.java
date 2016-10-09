@@ -11,6 +11,7 @@ import com.lake.waterlake.R;
 
 /**
  * Created by yyh on 16/9/1.
+ * 自定义MenuRadio 组件
  */
 public class MenuRadioButton  extends RadioButton{
 

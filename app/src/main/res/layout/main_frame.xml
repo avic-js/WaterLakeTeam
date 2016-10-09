@@ -4,23 +4,23 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:id="@+id/titleHead"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@mipmap/title"/>
+        android:background="@mipmap/topbg"/>
 
     <com.lake.waterlake.home.FrameGridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/framegridView"
-        android:horizontalSpacing="0.0dip"
+        android:horizontalSpacing="1.0dip"
         android:listSelector="@null"
         android:numColumns="3"
         android:scrollbars="none"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="0.0dip"
+        android:verticalSpacing="1.0dip"
         android:layout_centerVertical="true"
         android:layout_below="@+id/titleHead"
          />
