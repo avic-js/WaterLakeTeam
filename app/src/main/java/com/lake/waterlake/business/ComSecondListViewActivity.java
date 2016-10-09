@@ -126,7 +126,7 @@ public class ComSecondListViewActivity extends Activity {
         mrbE.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 19);
         mrbE.setLayoutParams(rp_sub_RButton);
         //mrb.setButtonDrawable(getResources().getDrawable(android.R.color.transparent));//android:button="@null"
-        Drawable drawable=this.getResources().getDrawable(R.drawable.app_aapay);
+        Drawable drawable=this.getResources().getDrawable(R.drawable.bottom_ico1_hover_2x);
         mrbE.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
         drawable.setBounds(0, 0, 80, 80);
         mrbE.setCompoundDrawables(drawable, null, null, null);
