@@ -6,7 +6,7 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:background="#fff"
@@ -27,6 +27,7 @@
             myradio:selfdrawableSize="20dp"
             android:gravity="center"
             android:textSize="13sp"
+            android:paddingTop="3dp"
             />
 
         <com.lake.waterlake.customcomponents.MenuRadioButton
