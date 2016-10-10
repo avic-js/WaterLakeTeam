@@ -71,9 +71,12 @@ public class DrinksafeActivity extends Activity {
 
         TwoParamsAdapter SZAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj.get(1));
         SZ_listView.setAdapter(SZAdapter);
+        SZ_time.setText(obj.get(1).get(7).getObj2());
+
 
         TwoParamsAdapter XDAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj.get(0));
         XD_listView.setAdapter(XDAdapter);
+        XD_time2.setText(obj.get(0).get(7).getObj2());
     }
 
     /**
@@ -100,6 +103,7 @@ public class DrinksafeActivity extends Activity {
                                 pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_45")));//水质评价
                                 pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_1")));//PH
                                 pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_2")));//溶解氧
+                                pList.add(new TwoParams(getResources().getString(R.string.jc_time_value), jsonObj.getString("upDateTime")));
                                 allList.add(pList);
                             }
                             // handler send data

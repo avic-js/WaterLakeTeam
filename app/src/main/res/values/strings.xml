@@ -34,4 +34,6 @@
     <string name="PH">PH</string>
     <string name="DO">溶解氧(mg/L)</string>
 
+    <string name="jc_time_value">监测时间</string>
+
 </resources>
