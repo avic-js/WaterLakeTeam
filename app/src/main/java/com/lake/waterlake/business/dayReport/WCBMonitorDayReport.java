@@ -51,7 +51,7 @@ public class WCBMonitorDayReport extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.wcbmonitor_dayreport);
+        setContentView(R.layout.wcb_monitor_dayreport);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText("水利局监测日报");
         back_Btn = (Button)findViewById(R.id.back_btn);

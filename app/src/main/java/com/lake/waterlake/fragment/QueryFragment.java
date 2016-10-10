@@ -56,6 +56,13 @@ public class QueryFragment extends LazyFragment{
     @Override
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.query_frame,container,false);
+
+        return view;
+
+    }
+
+    @Override
+    protected void initData() {
         //静态实现的下拉框，数据写在query_frame.xml文件中
         spinnerDpt =(Spinner)view.findViewById(R.id.spinnerDpt);
         spinnerDpt.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
@@ -64,13 +71,6 @@ public class QueryFragment extends LazyFragment{
 //        spinnerTime.setAdapter(adapterCity);
         spinnerTime.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
         reportView=(ListView)view.findViewById(R.id.query_listView);
-        return view;
-
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     private class OnItemSelectedListenerImpl implements AdapterView.OnItemSelectedListener {
