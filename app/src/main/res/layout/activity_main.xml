@@ -23,7 +23,7 @@
             android:checked="true"
             android:clickable="true"
             android:text="@string/main"
-            myradio:drawableTop="@drawable/bottom_ico1_hover_2x"
+            myradio:drawableTop="@drawable/bottom_ico1_2x"
             myradio:selfdrawableSize="20dp"
             android:gravity="center"
             android:textSize="13sp"

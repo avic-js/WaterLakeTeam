@@ -1,5 +1,6 @@
 package com.lake.waterlake;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -86,6 +87,7 @@ public class RadioMainActivity extends FragmentActivity {
 
         viewPager.setAdapter(new ComFragmentPagerAdapter(getSupportFragmentManager(),alFragment));
         viewPager.setCurrentItem(0);
+        ((RadioButton) findViewById(R.id.rb_homeImg)).setTextColor(Color.rgb(75, 151, 248));
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -97,15 +99,31 @@ public class RadioMainActivity extends FragmentActivity {
                 switch (position){
                     case 0:
                         radioGroup.check(R.id.rb_homeImg);
+                        ((RadioButton) findViewById(R.id.rb_homeImg)).setTextColor(Color.rgb(75, 151, 248));
+                        ((RadioButton) findViewById(R.id.rb_contacts)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_discovery)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_me)).setTextColor(Color.rgb(0, 0, 0));
                         break;
                     case 1:
                         radioGroup.check(R.id.rb_contacts);
+                        ((RadioButton) findViewById(R.id.rb_homeImg)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_contacts)).setTextColor(Color.rgb(75, 151, 248));
+                        ((RadioButton) findViewById(R.id.rb_discovery)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_me)).setTextColor(Color.rgb(0, 0, 0));
                         break;
                     case 2:
                         radioGroup.check(R.id.rb_discovery);
+                        ((RadioButton) findViewById(R.id.rb_homeImg)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_contacts)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_discovery)).setTextColor(Color.rgb(75, 151, 248));
+                        ((RadioButton) findViewById(R.id.rb_me)).setTextColor(Color.rgb(0, 0, 0));
                         break;
                     case 3:
                         radioGroup.check(R.id.rb_me);
+                        ((RadioButton) findViewById(R.id.rb_homeImg)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_contacts)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_discovery)).setTextColor(Color.rgb(0, 0, 0));
+                        ((RadioButton) findViewById(R.id.rb_me)).setTextColor(Color.rgb(75, 151, 248));
                         break;
 
                 }
