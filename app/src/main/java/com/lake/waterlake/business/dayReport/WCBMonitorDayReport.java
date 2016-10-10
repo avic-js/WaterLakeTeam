@@ -172,10 +172,7 @@ public class WCBMonitorDayReport extends Activity {
      */
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
-
-
-
-            switch (msg.what){
+             switch (msg.what){
                 case 111:
                     fourlist = (List<FourParams>)msg.obj;
                     count++;

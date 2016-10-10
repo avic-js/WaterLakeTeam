@@ -24,10 +24,10 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:src="@mipmap/logo" />
 
             <TextView
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="14dp"
                 android:text="@string/project_name"
                 android:textSize="@dimen/project_name_size"
                 android:textStyle="bold" />
@@ -44,7 +44,7 @@
                 android:id="@+id/frameAll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="14dp"
                 android:background="@mipmap/win_bg2"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:drawableLeft="@mipmap/home"
+                        android:drawableLeft="@android:drawable/ic_menu_myplaces"
                         android:hint="@string/prompt_name"
                         android:inputType="textPersonName"
                         android:maxLines="1"
@@ -92,7 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:drawableLeft="@mipmap/uptrend"
+                        android:drawableLeft="@android:drawable/ic_menu_mylocation"
                         android:hint="@string/prompt_password"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/action_sign_in_short"
@@ -100,14 +100,13 @@
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:singleLine="true"
-
                         />
                 </android.support.design.widget.TextInputLayout>
 
             </RelativeLayout>
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

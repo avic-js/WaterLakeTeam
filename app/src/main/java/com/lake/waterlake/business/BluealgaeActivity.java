@@ -1,6 +1,7 @@
 package com.lake.waterlake.business;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
+import com.lake.waterlake.RadioMainActivity;
 import com.lake.waterlake.customAdapter.PersonAdapter;
 import com.lake.waterlake.customAdapter.ThreeParamsAdapter;
 import com.lake.waterlake.model.ThreeParams;
@@ -26,6 +28,7 @@ import com.lake.waterlake.util.WSFunction;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +68,7 @@ public class BluealgaeActivity extends Activity {
         bluealgae_listView = (ListView)findViewById(R.id.bluealgae_listView);//set listview
 
         initData();
+
     }
 
     /**
