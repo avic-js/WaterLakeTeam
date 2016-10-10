@@ -51,7 +51,7 @@ public class WCBMonitorDayReport extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wcbmonitor_dayreport);
+//        setContentView(R.layout.wcbmonitor_dayreport);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText("水利局监测日报");
         back_Btn = (Button)findViewById(R.id.back_btn);
@@ -65,8 +65,8 @@ public class WCBMonitorDayReport extends Activity {
         transfer_time =  (TextView)findViewById(R.id.transfer_time); // 调水引流
         transfer_listView = (ListView)findViewById(R.id.transfer_listView);
 
-        level_time  =  (TextView)findViewById(R.id.transfer_time2);  //水位水文
-        level_listView = (ListView)findViewById(R.id.transfer_listView2); //水位水文
+//        level_time  =  (TextView)findViewById(R.id.transfer_time2);  //水位水文
+//        level_listView = (ListView)findViewById(R.id.transfer_listView2); //水位水文
         initData();
     }
 

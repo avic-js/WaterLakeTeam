@@ -2,9 +2,9 @@
 <resources>
     <string-array name="department">
         <item>全部</item>
-        <item>环保局 </item>
         <item>水利局</item>
         <item>气象局</item>
+        <item>环保局</item>
     </string-array>
 
 <string-array name="queryt">

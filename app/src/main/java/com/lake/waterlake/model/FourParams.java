@@ -18,6 +18,10 @@ public class FourParams {
         this.obj4 = obj4;
     }
 
+    public FourParams() {
+
+    }
+
     public String getObj1() {
         return obj1;
     }
