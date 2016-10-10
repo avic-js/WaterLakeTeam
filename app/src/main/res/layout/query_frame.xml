@@ -27,13 +27,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="22dp"
-                    android:textColor="#1ff"
                     android:layout_marginLeft="15dp"
                     android:layout_alignParentLeft="true"
-                    android:text=" 筛选条件"
+                    android:textColor="#5395d5"
+                    android:text="筛选条件"
                     android:gravity="center"
                     />
-
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c2c3c4"
+                >
             </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/title_listView"
@@ -44,10 +49,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="18dp"
-                        android:textColor="#1ff"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text=" 部门:"
+                        android:text="部门:"
                         android:gravity="center"
                         />
                     <Spinner
@@ -60,18 +64,23 @@
                         />
 
                 </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c2c3c4"
+                >
+            </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/title1_listView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="40dp">
+                    android:layout_marginTop="20dp">
 
                     <TextView
                         android:id="@+id/query_time"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="18dp"
-                        android:textColor="#1ff"
                         android:text="时间："
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
@@ -114,15 +123,67 @@
 
                     <!--</RadioGroup>-->
                 </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c2c3c4"
+                >
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:background="#94c1e8"
+                >
+
+                <TextView
+                    android:id="@+id/list_reportid1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="序号"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/list_reportname1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+
+                    android:layout_marginLeft="105dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="报告名称"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/list_reportime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="18dp"
+
+                    android:layout_marginLeft="250dp"
+                    android:layout_alignParentLeft="true"
+                    android:text=" 报告日期"
+                    android:gravity="center"
+                    />
+
+            </RelativeLayout>
+
+
                 <ListView
                     android:id="@+id/query_listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
                     android:horizontalSpacing="0.0dip"
                     android:scrollbars="none"
-                    android:verticalSpacing="0.0dip"
                     android:layout_centerVertical="true"
-                    android:layout_below="@+id/title_listView"
+                    android:verticalSpacing="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+
                     />
         </LinearLayout>
     </ScrollView>

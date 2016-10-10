@@ -1,6 +1,7 @@
 package com.lake.waterlake.business.dayReport;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -39,6 +40,8 @@ public class WCBBluealgaeDayReport extends Activity {
 
     TextView title_text;//抬头标题
     Button back_Btn;//back
+    private String searchdate;
+
 
     /**
      *
@@ -61,8 +64,9 @@ public class WCBBluealgaeDayReport extends Activity {
         bluealgae_time =  (TextView)findViewById(R.id.bluealgae_time);// set time
 
         bluealgae_listView = (ListView)findViewById(R.id.bluealgae_listView);//set listview
-
-        initData();
+        Intent intent=getIntent();
+        String reportid=intent.getStringExtra("reportid");
+        initData(reportid);
     }
 
     /**
@@ -72,16 +76,21 @@ public class WCBBluealgaeDayReport extends Activity {
     public  void  showViewData(List<ThreeParams> obj){
         ThreeParamsAdapter threeAdapter = new ThreeParamsAdapter(this,R.layout.threeparams_view,obj);
         bluealgae_listView.setAdapter(threeAdapter);
+        bluealgae_time.setText(searchdate);
+        title_text.setText("水利局蓝藻数据日报");
     }
 
     /**
      * call business data
      */
-    public  void initData() {
+    public  void initData(String reportid) {
         // TODO: 16/9/24   pelease intent params  reportId
-        
+        String[] params=new String[1];
+        String[] Conditions=new String[1];
+        params[0]="reportId";
+        Conditions[0]=reportid;
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.bluealgaereport", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.bluealgaereport", params, Conditions);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -92,6 +101,7 @@ public class WCBBluealgaeDayReport extends Activity {
                             pList.add(new ThreeParams("类别","当日情况","累计情况"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                searchdate=jsonObj.getString("upDateTime");
                                 String obj1  = jsonObj.getString("ProCol_43");
                                 String obj2 = jsonObj.getString("ProCol_44");
                                 String obj = jsonObj.getString("PointName");

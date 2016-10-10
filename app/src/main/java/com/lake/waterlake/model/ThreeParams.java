@@ -11,6 +11,11 @@ public class ThreeParams {
         this.obj3 = obj3;
     }
 
+
+
+    public ThreeParams() {
+
+    }
     private  String obj1;
     private  String obj2;
     private  String obj3;
