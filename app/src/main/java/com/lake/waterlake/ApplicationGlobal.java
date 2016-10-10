@@ -32,4 +32,10 @@ public class ApplicationGlobal {
 
 
     public static final String URL_read = ServletUrl + "?method=read";
+
+    public static final String SHARED_PRENFENCE_ACCOUNT = "TAIHU_ACCOUNT";
+
+    public static final String SHARED_PRENFENCE_PASSWORD = "TAIHU_PASSWORD";
+
+    public static final String SHARED_PRENFENCE_NAME = "TAIHU";
 }

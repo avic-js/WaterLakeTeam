@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".RadioMainActivity"
+            android:name=".MainActivity"
 
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -37,6 +37,8 @@
         <activity android:name=".business.SatelliteActivity"></activity>
         <activity android:name=".business.TransferWaterActivity"></activity>
         <activity android:name=".business.WeatherActivity"></activity>
+        <activity android:name=".RadioMainActivity"></activity>
+
 
         <!--report Activity-->
         <activity android:name=".business.dayReport.EPAMonitorDayReport"></activity>
