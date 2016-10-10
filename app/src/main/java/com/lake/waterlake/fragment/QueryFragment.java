@@ -172,7 +172,7 @@ public class QueryFragment extends LazyFragment{
                 }else if(allList.get(position).getObj4().equals("1005")){//环保局
                     intent.setClass(getActivity(), EPAMonitorDayReport.class);
                 }
-                allList.clear();
+//                allList.clear();
                 startActivity(intent);
 
             }
