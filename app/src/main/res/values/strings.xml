@@ -22,7 +22,9 @@
     <string name="shazhu">沙渚(环保局)</string>
     <string name="xidong">锡东(环保局)</string>
     <string name="jc_time">监测时间:</string>
-    <string name="shuiliju">(水利局)</string>
+    <string name="shuiliju">水利局</string>
+    <string name="qixiangju">水利局</string>
+
 
     <string name="NH3">氨氮(mg/L)</string>
     <string name="TN">总氮(mg/L)</string>

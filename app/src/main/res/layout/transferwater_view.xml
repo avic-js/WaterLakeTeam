@@ -33,7 +33,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="(水利局)"
+                        android:text="@string/shuiliju"
                         android:gravity="center"
                         />
                     <TextView
@@ -57,7 +57,7 @@
                         android:layout_toLeftOf="@+id/transfer_time"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />

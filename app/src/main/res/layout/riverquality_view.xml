@@ -57,7 +57,7 @@
                         android:layout_toLeftOf="@+id/jc_time1"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
@@ -113,7 +113,7 @@
                         android:layout_toLeftOf="@+id/jc_time2"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
@@ -169,7 +169,7 @@
                         android:layout_toLeftOf="@+id/jc_time3"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
@@ -225,7 +225,7 @@
                         android:layout_toLeftOf="@+id/jc_time4"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
@@ -281,7 +281,7 @@
                         android:layout_toLeftOf="@+id/jc_time5"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
@@ -337,7 +337,7 @@
                         android:layout_toLeftOf="@+id/jc_time6"
                         android:textSize="12dp"
                         myradio:drawableLeft="@drawable/clock_ico_2x"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />

@@ -56,8 +56,8 @@
                         android:clickable="true"
                         android:layout_toLeftOf="@+id/bluealgae_time"
                         android:textSize="12dp"
-                        myradio:drawableLeft="@drawable/shouye_red"
-                        myradio:selfdrawableSize="20dp"
+                        myradio:drawableLeft="@drawable/clock_ico_2x"
+                        myradio:selfdrawableSize="15dp"
                         android:gravity="center"
                         android:layout_marginRight="5dp"
                         />
