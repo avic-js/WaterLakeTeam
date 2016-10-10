@@ -51,7 +51,7 @@ public class QueryFragment extends LazyFragment{
     private ArrayAdapter<CharSequence> adapterCity = null;
     private ListView reportView;// 报表的展示view
     SimpleAdapter adapter;
-    List<Map<String,Object>> listData=new ArrayList<Map<String,Object>>();
+
     List<FourParams> allList =  new ArrayList<FourParams>();
     @Override
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,7 +78,6 @@ public class QueryFragment extends LazyFragment{
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int position, long id) {
             String time = spinnerTime.getSelectedItem().toString();
-//          parent.getItemAtPosition(position).toString();
             String dept=spinnerDpt.getSelectedItem().toString();
             String day=TValueChange(time);
             String depid=DValueChange(dept);
@@ -98,6 +97,7 @@ public class QueryFragment extends LazyFragment{
                                 JSONArray jarray = new JSONArray(str);
 
 
+                                List<FourParams> allListtemp =  new ArrayList<FourParams>();
                                 for (int i=0;i<jarray.length();i++){
                                     FourParams pList =new FourParams() ;
                                     JSONObject jsonObj = (JSONObject)jarray.get(i);
@@ -105,13 +105,13 @@ public class QueryFragment extends LazyFragment{
                                     pList.setObj2(jsonObj.getString("ReportName"));
                                     pList.setObj3(jsonObj.getString("ReportTime"));
                                     pList.setObj4(jsonObj.getString("ReportAssociateID"));
-//                                    pList.add(new ThreeParams(jsonObj.getString("Reportid"), , ));//溶解氧
-                                    allList.add(pList);
+                                    allListtemp.add(pList);
                                 }
+
                                 // handler send data
                                 Message msg =  new Message();
                                 msg.what=111;
-                                msg.obj = allList;
+                                msg.obj = allListtemp;
                                 mHandler.sendMessage(msg);
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -124,11 +124,6 @@ public class QueryFragment extends LazyFragment{
                     });
             DefaultThreadPool.getInstance().execute(httpget);
             BaseRequest.getBaseRequests().add(httpget);
-
-
-
-//            Toast.makeText(getActivity(), "下拉框选择是：" + time+"---"+dept,
-//                    Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -141,12 +136,13 @@ public class QueryFragment extends LazyFragment{
     public  void  showViewData(List<FourParams> obj){
         List<FourParams> allListtmp =  new ArrayList<FourParams>();
         allListtmp=obj;
-
+        allList=allListtmp;
+        List<Map<String,Object>> listData=new ArrayList<Map<String,Object>>();
         for(int i=0;i<allListtmp.size();i++){
             Map<String,Object> map=new HashMap<String,Object>();
             FourParams fourParams=new FourParams() ;
             fourParams=(FourParams)allListtmp.get(i);
-            map.put("file_list_item1",fourParams.getObj1());
+//            map.put("file_list_item1",fourParams.getObj1());
             map.put("file_list_item2",fourParams.getObj2());
             map.put("file_list_item3",fourParams.getObj3());
             listData.add(map);
@@ -154,8 +150,8 @@ public class QueryFragment extends LazyFragment{
         adapter=new SimpleAdapter(QueryFragment.this.getActivity(),
                 listData,
                 R.layout.list_report_item_5,
-                new String[]{"file_list_item1","file_list_item2","file_list_item3"},
-                new int[]{R.id.list_reportid,R.id.list_reportname,R.id.list_reportime});
+                new String[]{"file_list_item2","file_list_item3"},
+                new int[]{R.id.list_reportname,R.id.list_reportime});
         reportView.setAdapter(adapter);
         reportView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -165,23 +161,18 @@ public class QueryFragment extends LazyFragment{
                 Bundle bundle = new Bundle();
 
                 bundle.putString("reportid", allList.get(position).getObj1());
-//                bundle.putString("address", DeviceTypeNBQTempList.get(position).getDeviceAddress());
-//                bundle.putString("pos", DeviceTypeNBQTempList.get(position).getDevicePos());
-//                bundle.putString("devicetype", DeviceTypeNBQTempList.get(position).getDeviceType());
-//                bundle.putString("devicename", DeviceTypeNBQTempList.get(position).getDeviceName());
-
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
                 if(allList.get(position).getObj4().equals("1012")){//水利局蓝藻
                     intent.setClass(getActivity(), WCBBluealgaeDayReport.class);
-                } else if(allList.get(position).getObj4().equals("1001")){//水利局
+                }else if(allList.get(position).getObj4().equals("1001")){//水利局
                     intent.setClass(getActivity(), WCBMonitorDayReport.class);
-                } else if(allList.get(position).getObj4().equals("1003")){//气象局
+                }else if(allList.get(position).getObj4().equals("1003")){//气象局
                     intent.setClass(getActivity(), WeatherMonitorDayReport.class);
                 }else if(allList.get(position).getObj4().equals("1005")){//环保局
                     intent.setClass(getActivity(), EPAMonitorDayReport.class);
                 }
-
+                allList.clear();
                 startActivity(intent);
 
             }
@@ -195,12 +186,11 @@ public class QueryFragment extends LazyFragment{
         if (time.equals("今日")){
             timetmp="1";
         }if (time.equals("本周")) {
-        timetmp="7";
+            timetmp="7";
         }if (time.equals("近两月")) {
-        timetmp="60";
+            timetmp="60";
         }
-       return timetmp;
-
+        return timetmp;
     }
     public String DValueChange(String dept)
     {
@@ -208,12 +198,12 @@ public class QueryFragment extends LazyFragment{
         if (dept.equals("全部")){
             depttmp="1002,1003,1005";
         }if (dept.equals("气象局")) {
-        depttmp="1003";
+            depttmp="1003";
         }if (dept.equals("水利局")) {
-        depttmp="1002";
+            depttmp="1002";
         }if(dept.equals("环保局")){
-        depttmp="1005";
-    }
+            depttmp="1005";
+        }
         return depttmp;
 
     }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <include android:id="@+id/includeTitle"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
-        layout="@layout/title_view_option" />
+        layout="@layout/title_view_optionquery" />
     <ScrollView android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
@@ -26,7 +26,7 @@
                     android:id="@+id/queryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="22dp"
+                    android:textSize="20dp"
                     android:layout_marginLeft="15dp"
                     android:layout_alignParentLeft="true"
                     android:textColor="#5395d5"
@@ -74,7 +74,7 @@
                     android:id="@+id/title1_listView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/query_time"
@@ -135,24 +135,14 @@
                 android:background="#94c1e8"
                 >
 
-                <TextView
-                    android:id="@+id/list_reportid1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="18dp"
 
-                    android:layout_marginLeft="15dp"
-                    android:layout_alignParentLeft="true"
-                    android:text="序号"
-                    android:gravity="center"
-                    />
                 <TextView
                     android:id="@+id/list_reportname1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="18dp"
 
-                    android:layout_marginLeft="105dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_alignParentLeft="true"
                     android:text="报告名称"
                     android:gravity="center"
@@ -163,7 +153,7 @@
                     android:layout_height="match_parent"
                     android:textSize="18dp"
 
-                    android:layout_marginLeft="250dp"
+                    android:layout_marginLeft="200dp"
                     android:layout_alignParentLeft="true"
                     android:text=" 报告日期"
                     android:gravity="center"
