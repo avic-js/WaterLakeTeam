@@ -24,7 +24,7 @@ public class ApplicationGlobal {
             .getAbsolutePath()
             + File.separatorChar;//文件分隔符（根据系统自动代替字符)
     //外网地址
-    public static String appUrl = "http://58.241.18.75:8083/lans";
+    public static String appUrl = "http://58.241.40.116:8777/lans";
 
     public static String ServletUrl = appUrl + "/jsonPort";
 

@@ -39,6 +39,7 @@ import java.util.List;
 public class BluealgaeActivity extends Activity {
 
     TextView bluealgae_time; //监测时间
+    String temp_bluealgae_time;
 
     ListView bluealgae_listView;//
 
@@ -80,6 +81,7 @@ public class BluealgaeActivity extends Activity {
         ThreeParamsAdapter threeAdapter = new ThreeParamsAdapter(this,R.layout.threeparams_view,obj);
         bluealgae_listView.setAdapter(threeAdapter);
 
+        bluealgae_time.setText(temp_bluealgae_time);
     }
 
     /**
@@ -101,7 +103,10 @@ public class BluealgaeActivity extends Activity {
                                 String obj1  = jsonObj.getString("ProCol_43");
                                 String obj2 = jsonObj.getString("ProCol_44");
                                 String obj = jsonObj.getString("PointName");
-                                pList.add(new ThreeParams(obj,obj1,obj2));
+                                pList.add(new ThreeParams(obj, obj1, obj2));
+                                if (i==(jarray.length()-1)) {
+                                   temp_bluealgae_time = jsonObj.getString("upDateTime");
+                                }
                             }
                             // handler send data
                             Message msg =  new Message();

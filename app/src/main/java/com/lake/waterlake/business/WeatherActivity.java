@@ -43,7 +43,6 @@ public class WeatherActivity extends Activity {
     TextView title_text;//抬头标题
     Button back_Btn;//back
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +70,6 @@ public class WeatherActivity extends Activity {
 
         SixParamsAdapter sixAdapter = new SixParamsAdapter(this,R.layout.sixparams_view,obj);
         weather_listView.setAdapter(sixAdapter);
-
     }
     //show surface Temper
     public  void  showTemperViewData(List<TwoParams> obj){
@@ -79,7 +77,6 @@ public class WeatherActivity extends Activity {
         TwoParamsAdapter twoAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
         temper_listView.setAdapter(twoAdapter);
     }
-
 
     /**
      * 调用数据
@@ -116,7 +113,6 @@ public class WeatherActivity extends Activity {
                             e.printStackTrace();
                         }
                     }
-
                     @Override
                     public void onFail(Exception e) {
                         e.printStackTrace();
@@ -142,7 +138,6 @@ public class WeatherActivity extends Activity {
                                 pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_58")));
                                 pList.add(new TwoParams("水底水温",jsonObj.getString("ProCol_59")));
                             }
-
                             // handler send data
                             Message msg =  new Message();
                             msg.what=112;
@@ -152,7 +147,6 @@ public class WeatherActivity extends Activity {
                             e.printStackTrace();
                         }
                     }
-
                     @Override
                     public void onFail(Exception e) {
                         e.printStackTrace();
@@ -160,7 +154,6 @@ public class WeatherActivity extends Activity {
                 });
         DefaultThreadPool.getInstance().execute(httpget);
         BaseRequest.getBaseRequests().add(httpget);
-
     }
 
     /**
