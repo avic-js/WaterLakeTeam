@@ -83,25 +83,39 @@ public class RiverqualityActivity extends Activity {
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    public  void  showViewData(List<List<TwoParams>> objList){
 
-        TwoParamsAdapter twoParamsAdapter1 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
+        TwoParamsAdapter twoParamsAdapter1 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(0));
         body_listView1.setAdapter(twoParamsAdapter1);
 
-        TwoParamsAdapter twoParamsAdapter2 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        TwoParamsAdapter twoParamsAdapter2 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(1));
         body_listView2.setAdapter(twoParamsAdapter2);
 
-        TwoParamsAdapter twoParamsAdapter3 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        TwoParamsAdapter twoParamsAdapter3 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(2));
         body_listView3.setAdapter(twoParamsAdapter3);
 
-        TwoParamsAdapter twoParamsAdapter4 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        TwoParamsAdapter twoParamsAdapter4 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(3));
         body_listView4.setAdapter(twoParamsAdapter4);
 
-        TwoParamsAdapter twoParamsAdapter5 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        TwoParamsAdapter twoParamsAdapter5 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(4));
         body_listView5.setAdapter(twoParamsAdapter5);
 
-        TwoParamsAdapter twoParamsAdapter6 = new TwoParamsAdapter(this,R.layout.twoparams_view,obj1);
+        TwoParamsAdapter twoParamsAdapter6 =
+                new TwoParamsAdapter(this,R.layout.twoparams_view,objList.get(5));
         body_listView6.setAdapter(twoParamsAdapter6);
+
+        jc_time1.setText(objList.get(0).get(7).getObj2());
+        jc_time2.setText(objList.get(1).get(7).getObj2());
+        jc_time3.setText(objList.get(2).get(7).getObj2());
+        jc_time4.setText(objList.get(3).get(7).getObj2());
+        jc_time5.setText(objList.get(4).get(7).getObj2());
+        jc_time6.setText(objList.get(5).get(7).getObj2());
+
     }
 
     /**
@@ -128,12 +142,13 @@ public class RiverqualityActivity extends Activity {
                                 pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_5")));//水质评价
                                 pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_8")));//PH
                                 pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_9")));//溶解氧
+                                pList.add(new TwoParams(getResources().getString(R.string.jc_time_value),jsonObj.getString("upDateTime")));// 监测时间
                                 allList.add(pList);
                             }
                             // handler send data
                             Message msg =  new Message();
                             msg.what=111;
-                            msg.obj = pList;
+                            msg.obj = allList;
                             mHandler.sendMessage(msg);
 
                         } catch (Exception e) {
@@ -158,7 +173,7 @@ public class RiverqualityActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
+                    showViewData((List<List<TwoParams>>)msg.obj);
                     break;
                 case  112:
 
