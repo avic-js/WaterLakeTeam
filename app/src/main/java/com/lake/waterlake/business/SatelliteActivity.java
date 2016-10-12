@@ -43,7 +43,7 @@ import java.util.List;
  */
 public class SatelliteActivity extends Activity {
 
-    TextView SZ_time; //监测时间
+    TextView satelite_time; //监测时间
     TextView title_text;//抬头标题
     Button back_Btn;//back
     ImageView imageView;
@@ -62,7 +62,7 @@ public class SatelliteActivity extends Activity {
                 finish();
             }
         });
-     //   SZ_time =  (TextView)findViewById(R.id.SZ_time);
+        satelite_time =  (TextView)findViewById(R.id.satelite_time);
         imageView = (ImageView)findViewById(R.id.imageViewDraw);
         initData();
     }
@@ -80,7 +80,7 @@ public class SatelliteActivity extends Activity {
         }catch (Exception e){
             e.printStackTrace();
         }
-
+        satelite_time.setText(matID.get(0).getObj2());
     }
 
 
