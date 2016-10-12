@@ -95,19 +95,18 @@ public class QueryFragment extends LazyFragment{
                         public void onSuccess(String str) {
                             try {
                                 JSONArray jarray = new JSONArray(str);
-
-
                                 List<FourParams> allListtemp =  new ArrayList<FourParams>();
-                                for (int i=0;i<jarray.length();i++){
-                                    FourParams pList =new FourParams() ;
-                                    JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                    pList.setObj1(jsonObj.getString("Reportid"));
-                                    pList.setObj2(jsonObj.getString("ReportName"));
-                                    pList.setObj3(jsonObj.getString("ReportTime"));
-                                    pList.setObj4(jsonObj.getString("ReportAssociateID"));
-                                    allListtemp.add(pList);
+                                if(jarray!=null&&jarray.length()>0){
+                                    for (int i=0;i<jarray.length();i++){
+                                        FourParams pList =new FourParams() ;
+                                        JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                        pList.setObj1(jsonObj.getString("Reportid"));
+                                        pList.setObj2(jsonObj.getString("ReportName"));
+                                        pList.setObj3(jsonObj.getString("ReportTime"));
+                                        pList.setObj4(jsonObj.getString("ReportAssociateID"));
+                                        allListtemp.add(pList);
+                                    }
                                 }
-
                                 // handler send data
                                 Message msg =  new Message();
                                 msg.what=111;
@@ -138,20 +137,29 @@ public class QueryFragment extends LazyFragment{
         allListtmp=obj;
         allList=allListtmp;
         List<Map<String,Object>> listData=new ArrayList<Map<String,Object>>();
-        for(int i=0;i<allListtmp.size();i++){
-            Map<String,Object> map=new HashMap<String,Object>();
-            FourParams fourParams=new FourParams() ;
-            fourParams=(FourParams)allListtmp.get(i);
+        if(allListtmp!=null&&allListtmp.size()>0){
+            for(int i=0;i<allListtmp.size();i++){
+                Map<String,Object> map=new HashMap<String,Object>();
+                FourParams fourParams=new FourParams() ;
+                fourParams=(FourParams)allListtmp.get(i);
 //            map.put("file_list_item1",fourParams.getObj1());
-            map.put("file_list_item2",fourParams.getObj2());
-            map.put("file_list_item3",fourParams.getObj3());
-            listData.add(map);
+                map.put("file_list_item2",fourParams.getObj2());
+                map.put("file_list_item3",fourParams.getObj3());
+                listData.add(map);
+            }
+            adapter=new SimpleAdapter(QueryFragment.this.getActivity(),
+                    listData,
+                    R.layout.list_report_item_5,
+                    new String[]{"file_list_item2","file_list_item3"},
+                    new int[]{R.id.list_reportname,R.id.list_reportime});
+        }else{
+            adapter=new SimpleAdapter(QueryFragment.this.getActivity(),
+                    null,
+                    R.layout.list_report_item_5,
+                    new String[]{"file_list_item2","file_list_item3"},
+                    new int[]{R.id.list_reportname,R.id.list_reportime});
         }
-        adapter=new SimpleAdapter(QueryFragment.this.getActivity(),
-                listData,
-                R.layout.list_report_item_5,
-                new String[]{"file_list_item2","file_list_item3"},
-                new int[]{R.id.list_reportname,R.id.list_reportime});
+
         reportView.setAdapter(adapter);
         reportView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {

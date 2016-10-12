@@ -101,7 +101,9 @@ public class WCBBluealgaeDayReport extends Activity {
                             pList.add(new ThreeParams("类别","当日情况","累计情况"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                searchdate=jsonObj.getString("upDateTime");
+                                if (i==0){
+                                    searchdate=jsonObj.getString("upDateTime");
+                                }
                                 String obj1  = jsonObj.getString("ProCol_43");
                                 String obj2 = jsonObj.getString("ProCol_44");
                                 String obj = jsonObj.getString("PointName");

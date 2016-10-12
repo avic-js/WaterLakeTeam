@@ -1,6 +1,7 @@
 package com.lake.waterlake.business.dayReport;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -42,7 +43,7 @@ import java.util.List;
         ListView temper_listView;//南拳站
         TextView title_text;//抬头标题
         Button back_Btn;//back
-
+        private String searchdate;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +63,9 @@ import java.util.List;
         temper_time =(TextView)findViewById(R.id.temper_time);// 湖面
         weather_listView = (ListView)findViewById(R.id.weather_listView);//南泉
         temper_listView = (ListView)findViewById(R.id.temper_listView);// 湖面
-
-        initData();
+            Intent intent=getIntent();
+            String reportid=intent.getStringExtra("reportid");
+            initData(reportid);
     }
 
     // show weather data
@@ -77,19 +79,23 @@ import java.util.List;
        TwoParamsAdapter laketwoAdapter =
             new TwoParamsAdapter(this,R.layout.twoparams_view,obj.get(1));
         weather_listView.setAdapter(laketwoAdapter);
-
+        weather_time.setText(searchdate);
+        temper_time.setText(searchdate);
 }
 
 
     /**
      * 调用数据
      */
-    public  void initData() {
+    public  void initData(String reportid) {
         // TODO: 16/9/24   pelease intent params  reportId
-
+        String[] params=new String[1];
+        String[] Conditions=new String[1];
+        params[0]="reportId";
+        Conditions[0]=reportid;
         // load weather_station
         List<RequestParameter>  parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.weatherreport", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.weatherreport", params, Conditions);
         AsyncHttpPost   httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -101,6 +107,10 @@ import java.util.List;
                             for (int i=0;i<jarray.length();i++){
                                 pList = new ArrayList<TwoParams>();
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                if (i==0){
+                                    searchdate=jsonObj.getString("upDateTime");
+                                }
+
                                 pList.add(new TwoParams("水表气温",jsonObj.getString("ProCol_35")));
                                 pList.add(new TwoParams("0.5米水温",jsonObj.getString("ProCol_57")));
                                 pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_58")));

@@ -1,6 +1,7 @@
 package com.lake.waterlake.business.dayReport;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -45,7 +46,7 @@ public class WCBMonitorDayReport extends Activity {
 
     TextView title_text;//抬头标题
     Button back_Btn;//back
-
+    private String searchdate;
 
 
     @Override
@@ -65,9 +66,11 @@ public class WCBMonitorDayReport extends Activity {
         transfer_time =  (TextView)findViewById(R.id.transfer_time); // 调水引流
         transfer_listView = (ListView)findViewById(R.id.transfer_listView);
 
-//        level_time  =  (TextView)findViewById(R.id.transfer_time2);  //水位水文
-//        level_listView = (ListView)findViewById(R.id.transfer_listView2); //水位水文
-        initData();
+        level_time  =  (TextView)findViewById(R.id.transfer_time2);  //水位水文
+        level_listView = (ListView)findViewById(R.id.transfer_listView2); //水位水文
+        Intent intent=getIntent();
+        String reportid=intent.getStringExtra("reportid");
+        initData(reportid);
     }
 
     public  void  showViewData(List<FourParams> obj,List<ThreeParams> obj1){
@@ -77,21 +80,27 @@ public class WCBMonitorDayReport extends Activity {
 
         ThreeParamsAdapter threeParamsAdapter =  new ThreeParamsAdapter(this,R.layout.threeparams_view,obj1);
         level_listView.setAdapter(threeParamsAdapter);
+        transfer_time.setText(searchdate);
+        level_time.setText(searchdate);
     }
 
     /**
      * 调用数据
      */
-    public  void initData() {
+    public  void initData(String reportid) {
         count=0;
-        LoadTransferData();// load transfer
-        LevelWater(); //load level_water
+        LoadTransferData(reportid);// load transfer
+        LevelWater(reportid); //load level_water
     }
 
     // load transfer
-    public void  LoadTransferData(){
+    public void  LoadTransferData(String reportid){
+        String[] params=new String[1];
+        String[] Conditions=new String[1];
+        params[0]="reportId";
+        Conditions[0]=reportid;
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.wcbtransfer", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.wcbtransfer", params, Conditions);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -102,6 +111,9 @@ public class WCBMonitorDayReport extends Activity {
                             pList.add(new FourParams("站点","平均流量","当日水量","当年水量"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                if (i==0){
+                                    searchdate=jsonObj.getString("upDateTime");
+                                }
                                 String obj    = jsonObj.getString("PointName");
                                 String obj1 =  jsonObj.getString("ProCol_40");
                                 String obj2 =  jsonObj.getString("ProCol_41");
@@ -128,9 +140,13 @@ public class WCBMonitorDayReport extends Activity {
 
 
     //load level_water
-    public void LevelWater(){
+    public void LevelWater(String reportid){
+        String[] params=new String[1];
+        String[] Conditions=new String[1];
+        params[0]="reportId";
+        Conditions[0]=reportid;
         List<RequestParameter> parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.wcblevel", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.wcblevel", params, Conditions);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -141,6 +157,9 @@ public class WCBMonitorDayReport extends Activity {
                             pList.add(new ThreeParams("监测点位","降雨量","平均水位(m)"));
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                if (i==0){
+                                    searchdate=jsonObj.getString("upDateTime");
+                                }
                                 pList.add(new ThreeParams(jsonObj.getString("PointName"),
                                         jsonObj.getString("ProCol_49"),jsonObj.getString("ProCol_39")));
                             }
