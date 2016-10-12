@@ -36,6 +36,7 @@ import java.util.List;
 public class TransferWaterActivity extends Activity {
 
     TextView transfer_time; //transfer监测时间
+    String temp_transfer_time;
 
     ListView transfer_listView;//transfer列表
 
@@ -71,6 +72,8 @@ public class TransferWaterActivity extends Activity {
 
         FourParamsAdapter  fourAdapter = new FourParamsAdapter(this,R.layout.fourparams_view,obj);
         transfer_listView.setAdapter(fourAdapter);
+        transfer_time.setText(temp_transfer_time);
+
     }
 
     /**
@@ -94,6 +97,9 @@ public class TransferWaterActivity extends Activity {
                                 String obj2 =  jsonObj.getString("ProCol_41");
                                 String obj3 =  jsonObj.getString("ProCol_42");
                                 pList.add(new FourParams(obj,obj1,obj2,obj3));
+                                if (i==(jarray.length()-1)){
+                                    temp_transfer_time = jsonObj.getString("upDateTime");
+                                }
                             }
                             // handler send data
                             Message msg =  new Message();

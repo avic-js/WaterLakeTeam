@@ -1,29 +1,39 @@
 package com.lake.waterlake.business;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
+
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lake.waterlake.ApplicationGlobal;
 import com.lake.waterlake.R;
-import com.lake.waterlake.customAdapter.PersonAdapter;
+
+import com.lake.waterlake.model.FourParams;
 import com.lake.waterlake.model.TwoParams;
 import com.lake.waterlake.network.AsyncHttpPost;
 import com.lake.waterlake.network.BaseRequest;
 import com.lake.waterlake.network.DefaultThreadPool;
 import com.lake.waterlake.network.RequestResultCallback;
+import com.lake.waterlake.util.LoadImg;
 import com.lake.waterlake.util.RequestParameter;
 import com.lake.waterlake.util.WSFunction;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,21 +43,16 @@ import java.util.List;
  */
 public class SatelliteActivity extends Activity {
 
-    TextView SZ_time; //沙渚监测时间
-    TextView XD_time2;//锡东监测时间
-    ListView SZ_listView;//沙渚列表
-    ListView XD_listView;//锡东列表
+    TextView SZ_time; //监测时间
     TextView title_text;//抬头标题
     Button back_Btn;//back
-
-    public List<TwoParams> personList;
-    public  List<TwoParams> personList2;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "drink safe", Toast.LENGTH_SHORT);
-        setContentView(R.layout.drinksafe_view);
+        setContentView(R.layout.satellite_view);
         title_text =(TextView)findViewById(R.id.title_center_text);
         title_text.setText(R.string.satellite);
         back_Btn = (Button)findViewById(R.id.back_btn);
@@ -57,32 +62,34 @@ public class SatelliteActivity extends Activity {
                 finish();
             }
         });
-
-        SZ_time =  (TextView)findViewById(R.id.SZ_time);
-        XD_time2 =(TextView)findViewById(R.id.XD_time2);
-        SZ_listView = (ListView)findViewById(R.id.SZ_listView);
-        XD_listView = (ListView)findViewById(R.id.XD_listView2);
-        personList = new ArrayList<TwoParams>();
-        personList2 = new ArrayList<TwoParams>();
-
+     //   SZ_time =  (TextView)findViewById(R.id.SZ_time);
+        imageView = (ImageView)findViewById(R.id.imageViewDraw);
         initData();
     }
 
-    public  void  showViewData(List<TwoParams> obj,List<TwoParams> obj1){
+    public  void showViewData(List<TwoParams> matID){
+        String url= ApplicationGlobal.ImageUrl +matID.get(0).getObj1();
+        LoadImg loadImg  = new LoadImg(this);
+        try {
+            loadImg.loadImage(imageView, url, new LoadImg.ImageDownloadCallBack() {
+                @Override
+                public void onImageDownload(ImageView imageView, Bitmap bitmap) {
+                    imageView.setImageBitmap(bitmap);
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        PersonAdapter perAdapter = new PersonAdapter(this,R.layout.my_listitem,obj);
-        SZ_listView.setAdapter(perAdapter);
-
-        PersonAdapter perAdapter2 = new PersonAdapter(this,R.layout.my_listitem,obj1);
-        XD_listView.setAdapter(perAdapter);
     }
+
 
     /**
      * 调用数据
      */
     public  void initData() {
         List<RequestParameter>    parameters =
-                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.test", null, null);
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.satelite", null, null);
         AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
                 new RequestResultCallback() {
                     @Override
@@ -90,11 +97,12 @@ public class SatelliteActivity extends Activity {
                         try {
                             JSONArray jarray = new JSONArray(str);
                             List<TwoParams> pList = new ArrayList<TwoParams>();
+                            String MatID ="";
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                String proName    = jsonObj.getString("ProName");
-                                String rank =  jsonObj.getString("Rank");
-                                pList.add(new TwoParams(proName, rank));
+//                                MatID    = jsonObj.getString("MatID");
+                                pList.add(new TwoParams(jsonObj.getString("_MatUrl"),
+                                        jsonObj.getString("upDateTime")));
                             }
                             // handler send data
                             Message msg =  new Message();
@@ -105,9 +113,7 @@ public class SatelliteActivity extends Activity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                     }
-
                     @Override
                     public void onFail(Exception e) {
                         e.printStackTrace();
@@ -124,14 +130,11 @@ public class SatelliteActivity extends Activity {
         public void handleMessage(Message msg){
             switch (msg.what){
                 case 111:
-                    showViewData((List<TwoParams>)msg.obj,(List<TwoParams>)msg.obj);
-                    break;
-                case  112:
-
+                    showViewData((List<TwoParams>)msg.obj);
                     break;
             }
-
         };
     };
+
 
 }

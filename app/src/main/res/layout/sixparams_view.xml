@@ -13,7 +13,7 @@
         />
     <TextView
         android:id="@+id/obj1"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj"
@@ -36,7 +36,7 @@
         android:layout_alignTop="@id/obj"
         android:layout_toRightOf="@id/obj2"
         android:textSize="18dp"
-        android:paddingLeft="5dp"
+        android:paddingLeft="8dp"
         />
     <TextView
         android:id="@+id/obj4"
@@ -45,15 +45,19 @@
         android:layout_alignTop="@id/obj"
         android:layout_toLeftOf="@+id/obj5"
         android:textSize="18dp"
-        android:paddingLeft="5dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="10dp"
+
         />
     <TextView
         android:id="@+id/obj5"
-        android:layout_width="50dp"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/obj"
         android:layout_alignParentRight="true"
         android:textSize="18dp"
-        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textAlignment="center"
+
         />
 </RelativeLayout>

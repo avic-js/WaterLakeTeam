@@ -38,6 +38,10 @@ public class WeatherActivity extends Activity {
 
     TextView weather_time; //气象局监测时间
     TextView temper_time;//南拳站监测时间
+
+    String temp_weather_time;//气象局监测时间
+    String temp_temper_time;//南拳站监测时间
+
     ListView weather_listView;//气象局
     ListView temper_listView;//水表气温
     TextView title_text;//抬头标题
@@ -70,12 +74,15 @@ public class WeatherActivity extends Activity {
 
         SixParamsAdapter sixAdapter = new SixParamsAdapter(this,R.layout.sixparams_view,obj);
         weather_listView.setAdapter(sixAdapter);
+        weather_time.setText(temp_weather_time);
+
     }
     //show surface Temper
     public  void  showTemperViewData(List<TwoParams> obj){
 
         TwoParamsAdapter twoAdapter = new TwoParamsAdapter(this,R.layout.twoparams_view,obj);
         temper_listView.setAdapter(twoAdapter);
+        temper_time.setText(temp_temper_time);
     }
 
     /**
@@ -103,6 +110,9 @@ public class WeatherActivity extends Activity {
                                 String obj4    = jsonObj.getString("ProCol_35");
                                 String obj5    = jsonObj.getString("ProCol_34");
                                 pList.add(new SixParams(obj,obj1,obj2,obj3,obj4,obj5));
+                                if (i==(jarray.length()-1)){
+                                    temp_weather_time   = jsonObj.getString("upDateTime");
+                                }
                             }
                             // handler send data
                             Message msg =  new Message();
@@ -137,6 +147,9 @@ public class WeatherActivity extends Activity {
                                 pList.add(new TwoParams("0.5米水温",jsonObj.getString("ProCol_57")));
                                 pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_58")));
                                 pList.add(new TwoParams("水底水温",jsonObj.getString("ProCol_59")));
+                                if (i==(jarray.length()-1)){
+                                    temp_temper_time   = jsonObj.getString("upDateTime");
+                                }
                             }
                             // handler send data
                             Message msg =  new Message();

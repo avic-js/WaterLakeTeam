@@ -14,6 +14,7 @@ import com.lake.waterlake.R;
 import com.lake.waterlake.business.BluealgaeActivity;
 import com.lake.waterlake.business.DrinksafeActivity;
 import com.lake.waterlake.business.RiverqualityActivity;
+import com.lake.waterlake.business.SatelliteActivity;
 import com.lake.waterlake.business.TransferWaterActivity;
 import com.lake.waterlake.business.WeatherActivity;
 import com.lake.waterlake.business.dayReport.WCBBluealgaeDayReport;
@@ -239,34 +240,22 @@ public class HomeFragment extends LazyFragment{
         fgridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /**
-                 * R.drawable.app_aapay,R.drawable.app_aligame,
-                 R.drawable.app_appcenter,
-                 R.drawable.app_assign,R.drawable.app_plane,R.drawable.app_transfer
-                 */
+
                 switch (FrameGridAdapter.imgs[position]) {
                     case R.drawable.ico1_2x://DrinksafeActivity
                         startActivity(new Intent(getActivity(), DrinksafeActivity.class));//启动另一个Activity
-
                         break;
                     case R.drawable.ico2_2x://
                         startActivity(new Intent(getActivity(), BluealgaeActivity.class));//启动另一个Activity
-
                         break;
                     case R.drawable.ico3_2x://
                         startActivity(new Intent(getActivity(), WeatherActivity.class));//启动另一个Activity
-
                         break;
                     case R.drawable.ico4_2x://
                         startActivity(new Intent(getActivity(), TransferWaterActivity.class));//启动另一个Activity
-
                         break;
                     case R.drawable.ico5_2x://
-                       // startActivity(new Intent(getActivity(), SatelliteActivity.class));//启动另一个Activity
-                        // startActivity(new Intent(getActivity(), WeatherMonitorDayReport.class));
-                       // startActivity(new Intent(getActivity(), WCBBluealgaeDayReport.class));
-                        startActivity(new Intent(getActivity(), WCBMonitorDayReport.class));
-
+                        startActivity(new Intent(getActivity(), SatelliteActivity.class));
                         break;
                     case R.drawable.ico6_2x://
                         startActivity(new Intent(getActivity(), RiverqualityActivity.class));//启动另一个Activity

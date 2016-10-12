@@ -10,12 +10,10 @@ import java.io.File;
  */
 public class ApplicationGlobal {
 
-
     public static String WSSessionId = "";
 
     public static final String loginwsName = "admin";
     public static final String loginwspwd = "111111";
-
 
     public static String basePath = Environment.getExternalStorageDirectory()
             .getAbsolutePath() + "/";
@@ -28,8 +26,11 @@ public class ApplicationGlobal {
 
     public static String ServletUrl = appUrl + "/jsonPort";
 
-    public static final String URL_login = ServletUrl + "?method=login";
+    public static String ImageUrl = "http://thb.wuxi.gov.cn//UploadFiles/ArtMats/";
 
+
+
+    public static final String URL_login = ServletUrl + "?method=login";
 
     public static final String URL_read = ServletUrl + "?method=read";
 
