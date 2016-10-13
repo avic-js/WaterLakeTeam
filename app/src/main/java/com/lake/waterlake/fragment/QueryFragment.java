@@ -193,7 +193,7 @@ public class QueryFragment extends LazyFragment{
         String timetmp="";
         if (time.equals("近两日")){
             timetmp="2";
-        }if (time.equals("本周")) {
+        }if (time.equals("近7天")) {
             timetmp="7";
         }if (time.equals("近两月")) {
             timetmp="60";

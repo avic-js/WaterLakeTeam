@@ -9,7 +9,7 @@
 
 <string-array name="queryt">
     <item>近两日</item>
-    <item>本周 </item>
+    <item>近7天</item>
     <item>近两月</item>
 </string-array>
 
