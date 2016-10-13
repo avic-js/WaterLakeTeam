@@ -353,7 +353,6 @@
                     android:layout_below="@+id/title_listView6"
                     />
             </RelativeLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
