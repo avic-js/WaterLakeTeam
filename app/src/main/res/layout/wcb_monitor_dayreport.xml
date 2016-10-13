@@ -33,7 +33,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="望慮河、梅梁户泵站调引水量情况"
+                        android:text="望虞河、梅梁户泵站调引水量情况"
                         android:gravity="center"
                         />
 
