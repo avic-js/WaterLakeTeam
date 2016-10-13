@@ -50,8 +50,8 @@ public class WCBBluealgaeDayReport extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bluealgae_view);// initView
-        title_text =(TextView)findViewById(R.id.title_center_text);
+        setContentView(R.layout.wcb_bluealgae_dayreport);// initView
+        title_text =(TextView)findViewById(R.id.kindName);
         title_text.setText("水利局蓝藻数据日报");// set title name
         back_Btn = (Button)findViewById(R.id.back_btn);
         back_Btn.setOnClickListener(new View.OnClickListener() {

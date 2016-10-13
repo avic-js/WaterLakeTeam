@@ -63,7 +63,7 @@ public class WCBMonitorDayReport extends Activity {
             }
         });
 
-        transfer_time =  (TextView)findViewById(R.id.transfer_time); // 调水引流
+//        transfer_time =  (TextView)findViewById(R.id.transfer_time); // 调水引流
         transfer_listView = (ListView)findViewById(R.id.transfer_listView);
 
         level_time  =  (TextView)findViewById(R.id.transfer_time2);  //水位水文
@@ -80,7 +80,7 @@ public class WCBMonitorDayReport extends Activity {
 
         ThreeParamsAdapter threeParamsAdapter =  new ThreeParamsAdapter(this,R.layout.threeparams_view,obj1);
         level_listView.setAdapter(threeParamsAdapter);
-        transfer_time.setText(searchdate);
+//        transfer_time.setText(searchdate);
         level_time.setText(searchdate);
     }
 

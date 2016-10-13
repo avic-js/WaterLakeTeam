@@ -191,8 +191,8 @@ public class QueryFragment extends LazyFragment{
     public String TValueChange(String time)
     {
         String timetmp="";
-        if (time.equals("今日")){
-            timetmp="1";
+        if (time.equals("近两日")){
+            timetmp="2";
         }if (time.equals("本周")) {
             timetmp="7";
         }if (time.equals("近两月")) {
