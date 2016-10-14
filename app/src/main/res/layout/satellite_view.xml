@@ -42,7 +42,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
