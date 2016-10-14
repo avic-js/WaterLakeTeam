@@ -70,9 +70,53 @@ public class QueryFragment extends LazyFragment{
         spinnerTime = (Spinner)view.findViewById(R.id.spinnerTime);
 //        spinnerTime.setAdapter(adapterCity);
         spinnerTime.setOnItemSelectedListener(new OnItemSelectedListenerImpl());
+        firstLOadData();
         reportView=(ListView)view.findViewById(R.id.query_listView);
     }
-
+    protected void firstLOadData(){
+        String[] params=new String[2];
+        String[] Conditions=new String[2];
+        params[0]="deptid";
+        params[1]="day";
+        Conditions[0]="1002,1003,1005";
+        Conditions[1]="1";
+        List<RequestParameter> parameters =
+                WSFunction.getParameters(ApplicationGlobal.WSSessionId, "waterLake.dptreport", params, Conditions);
+        AsyncHttpPost httpget = new AsyncHttpPost(ApplicationGlobal.URL_read, parameters,
+                new RequestResultCallback() {
+                    @Override
+                    public void onSuccess(String str) {
+                        try {
+                            JSONArray jarray = new JSONArray(str);
+                            List<FourParams> allListtemp =  new ArrayList<FourParams>();
+                            if(jarray!=null&&jarray.length()>0){
+                                for (int i=0;i<jarray.length();i++){
+                                    FourParams pList =new FourParams() ;
+                                    JSONObject jsonObj = (JSONObject)jarray.get(i);
+                                    pList.setObj1(jsonObj.getString("Reportid"));
+                                    pList.setObj2(jsonObj.getString("ReportName"));
+                                    pList.setObj3(jsonObj.getString("ReportTime"));
+                                    pList.setObj4(jsonObj.getString("ReportAssociateID"));
+                                    allListtemp.add(pList);
+                                }
+                            }
+                            // handler send data
+                            Message msg =  new Message();
+                            msg.what=111;
+                            msg.obj = allListtemp;
+                            mHandler.sendMessage(msg);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onFail(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        DefaultThreadPool.getInstance().execute(httpget);
+        BaseRequest.getBaseRequests().add(httpget);
+    }
     private class OnItemSelectedListenerImpl implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view,
@@ -192,7 +236,7 @@ public class QueryFragment extends LazyFragment{
     {
         String timetmp="";
         if (time.equals("近两日")){
-            timetmp="2";
+            timetmp="1";
         }if (time.equals("近7天")) {
             timetmp="7";
         }if (time.equals("近两月")) {
