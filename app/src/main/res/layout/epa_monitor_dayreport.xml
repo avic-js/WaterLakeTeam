@@ -89,7 +89,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="横山水库水质"
+                        android:text="锡东水厂水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -145,7 +145,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="锡东水厂水质"
+                        android:text="澄西水厂水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -201,7 +201,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="澄西水厂水质"
+                        android:text="小湾水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -257,7 +257,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="小湾水质"
+                        android:text="肖山湾水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -313,7 +313,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="肖山湾水质"
+                        android:text="横山水库水质"
                         android:gravity="center"
                         />
                     <TextView

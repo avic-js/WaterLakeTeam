@@ -33,7 +33,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="南泉站"
+                        android:text="南泉水源厂自动站"
                         android:gravity="center"
                         />
                     <TextView

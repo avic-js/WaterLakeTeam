@@ -31,6 +31,7 @@ import com.lake.waterlake.util.WSFunction;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,10 +100,12 @@ public class HomeFragment extends LazyFragment{
                                   mcs_djTime[1] = jsonObj.getString("upDateTime");
 
                                 mcs_valueUp[6]= jsonObj.getString("ProCol_31");
-                                mcs_valueDown[6]= jsonObj.getString("ProCol_35")+"~"+jsonObj.getString("ProCol_35");
+                                mcs_valueDown[6]= jsonObj.getString("ProCol_35")+"~"+jsonObj.getString("ProCol_34");
 
                             }
-                            mcs_valueUp[1]= avgtemp.toString();
+                            DecimalFormat decimalFormat=new DecimalFormat(".00");//构造方法的字符格式这里如果小数不足2位,会以0补足.
+
+                            mcs_valueUp[1]= decimalFormat.format(avgtemp);
                             mcs_valueDown[1]= "";
 
                             // handler send data
