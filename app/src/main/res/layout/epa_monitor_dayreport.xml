@@ -42,7 +42,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
@@ -89,7 +89,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="横山水库水质"
+                        android:text="锡东水厂水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -98,7 +98,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
@@ -145,7 +145,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="锡东水厂水质"
+                        android:text="澄西水厂水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -154,7 +154,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
@@ -201,7 +201,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="澄西水厂水质"
+                        android:text="小湾水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -210,7 +210,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
@@ -257,7 +257,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="小湾水质"
+                        android:text="肖山湾水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -266,7 +266,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"
@@ -313,7 +313,7 @@
                         android:textColor="#1af"
                         android:layout_marginLeft="15dp"
                         android:layout_alignParentLeft="true"
-                        android:text="肖山湾水质"
+                        android:text="横山水库水质"
                         android:gravity="center"
                         />
                     <TextView
@@ -322,7 +322,7 @@
                         android:layout_height="match_parent"
                         android:textSize="21dp"
                         android:textColor="#1af"
-                        android:text="2016/12/01"
+                        android:text="____/__/__"
                         android:layout_marginRight="5dp"
                         android:layout_alignParentRight="true"
                         android:gravity="center"

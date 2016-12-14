@@ -143,10 +143,10 @@ public class WeatherActivity extends Activity {
                             List<TwoParams> pList = new ArrayList<TwoParams>();
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                pList.add(new TwoParams("水表气温",jsonObj.getString("ProCol_35")));
-                                pList.add(new TwoParams("0.5米水温",jsonObj.getString("ProCol_57")));
-                                pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_58")));
-                                pList.add(new TwoParams("水底水温",jsonObj.getString("ProCol_59")));
+                                pList.add(new TwoParams("水表气温",jsonObj.getString("ProCol_57")));
+                                pList.add(new TwoParams("0.5米水温",jsonObj.getString("ProCol_58")));
+                                pList.add(new TwoParams("1米水温",jsonObj.getString("ProCol_59")));
+                                pList.add(new TwoParams("水底水温",jsonObj.getString("ProCol_60")));
                                 if (i==(jarray.length()-1)){
                                     temp_temper_time   = jsonObj.getString("upDateTime");
                                 }

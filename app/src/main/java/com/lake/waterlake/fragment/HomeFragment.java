@@ -31,7 +31,6 @@ import com.lake.waterlake.util.WSFunction;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,7 +102,7 @@ public class HomeFragment extends LazyFragment{
                                 mcs_valueDown[6]= jsonObj.getString("ProCol_35")+"~"+jsonObj.getString("ProCol_35");
 
                             }
-                            mcs_valueUp[1]= getPrettyNumber(avgtemp.toString());
+                            mcs_valueUp[1]= avgtemp.toString();
                             mcs_valueDown[1]= "";
 
                             // handler send data
@@ -143,7 +142,7 @@ public class HomeFragment extends LazyFragment{
                             String taihu_AvgLevel="0";
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                taihu_AvgLevel = getPrettyNumber(jsonObj.getString("ProCol_39"));
+                                taihu_AvgLevel =    jsonObj.getString("ProCol_39");
                                 mcs_djTime[0] = jsonObj.getString("upDateTime");
                             }
                             mcs_valueUp[0]= taihu_AvgLevel;
@@ -182,10 +181,10 @@ public class HomeFragment extends LazyFragment{
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 pList = new ArrayList<TwoParams>();
-                                pList.add(new TwoParams(getResources().getString(R.string.NH3), getPrettyNumber(jsonObj.getString("ProCol_4"))));//氨氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TN), getPrettyNumber(jsonObj.getString("ProCol_5"))));//总氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TP), getPrettyNumber(jsonObj.getString("ProCol_6"))));//总磷
-                                pList.add(new TwoParams(getResources().getString(R.string.algae), getPrettyNumber(jsonObj.getString("ProCol_9"))));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_4")));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_5")));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_6")));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_9")));//藻密度
                                 allList.add(pList);
                                 paramTime = jsonObj.getString("upDateTime");
                             }
@@ -268,13 +267,6 @@ public class HomeFragment extends LazyFragment{
         });
 
         LoadMiddleData();// load middle content
-    }
-
-    /**
-     * 去除数字中多余的0**/
-    public  String getPrettyNumber(String number) {
-        return BigDecimal.valueOf(Double.parseDouble(number))
-                .stripTrailingZeros().toPlainString();
     }
 
 }
