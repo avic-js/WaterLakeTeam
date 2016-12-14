@@ -31,6 +31,7 @@ import com.lake.waterlake.util.WSFunction;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +73,7 @@ public class HomeFragment extends LazyFragment{
         // load weather
         LoadWeatherDataPart();
 
-        }
+    }
 
     public void showViewData(List<List<TwoParams>> obj){
         flistView = (FrameListView) view.findViewById(R.id.frameListView);
@@ -93,16 +94,16 @@ public class HomeFragment extends LazyFragment{
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i); // 南泉 4项温度求平均
                                 avgtemp = (Float.valueOf(jsonObj.getString("ProCol_57")) +
-                                                Float.valueOf(jsonObj.getString("ProCol_58"))
+                                        Float.valueOf(jsonObj.getString("ProCol_58"))
                                         + Float.valueOf(jsonObj.getString("ProCol_59"))+
-                                                Float.valueOf(jsonObj.getString("ProCol_60")))/4;
-                                  mcs_djTime[1] = jsonObj.getString("upDateTime");
+                                        Float.valueOf(jsonObj.getString("ProCol_60")))/4;
+                                mcs_djTime[1] = jsonObj.getString("upDateTime");
 
                                 mcs_valueUp[6]= jsonObj.getString("ProCol_31");
                                 mcs_valueDown[6]= jsonObj.getString("ProCol_35")+"~"+jsonObj.getString("ProCol_35");
 
                             }
-                            mcs_valueUp[1]= avgtemp.toString();
+                            mcs_valueUp[1]= getPrettyNumber(avgtemp.toString());
                             mcs_valueDown[1]= "";
 
                             // handler send data
@@ -142,7 +143,7 @@ public class HomeFragment extends LazyFragment{
                             String taihu_AvgLevel="0";
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                taihu_AvgLevel =    jsonObj.getString("ProCol_39");
+                                taihu_AvgLevel = getPrettyNumber(jsonObj.getString("ProCol_39"));
                                 mcs_djTime[0] = jsonObj.getString("upDateTime");
                             }
                             mcs_valueUp[0]= taihu_AvgLevel;
@@ -181,10 +182,10 @@ public class HomeFragment extends LazyFragment{
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 pList = new ArrayList<TwoParams>();
-                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_4")));//氨氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_5")));//总氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_6")));//总磷
-                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_9")));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), getPrettyNumber(jsonObj.getString("ProCol_4"))));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), getPrettyNumber(jsonObj.getString("ProCol_5"))));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), getPrettyNumber(jsonObj.getString("ProCol_6"))));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), getPrettyNumber(jsonObj.getString("ProCol_9"))));//藻密度
                                 allList.add(pList);
                                 paramTime = jsonObj.getString("upDateTime");
                             }
@@ -222,9 +223,9 @@ public class HomeFragment extends LazyFragment{
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
             count++;
-          if (count>=3){// 根据回调数量确定数值
-              showViewData((List<List<TwoParams>>)msg.obj);
-              count=0;
+            if (count>=3){// 根据回调数量确定数值
+                showViewData((List<List<TwoParams>>)msg.obj);
+                count=0;
             }
 
         };
@@ -233,8 +234,8 @@ public class HomeFragment extends LazyFragment{
     @Override
     protected void initData() {
         System.out.print("-----HomeFragment-----");
-       // flistView = (FrameListView)view.findViewById(R.id.frameListView);
-       // flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(), mcs_value, mcs_time));
+        // flistView = (FrameListView)view.findViewById(R.id.frameListView);
+        // flistView.setAdapter(new FrameListViewAdapter(HomeFragment.this.getContext(), mcs_value, mcs_time));
         fgridview=(FrameGridView)view.findViewById(R.id.framegridView);
         fgridview.setAdapter(new FrameGridAdapter(HomeFragment.this.getContext()));
         fgridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -267,6 +268,13 @@ public class HomeFragment extends LazyFragment{
         });
 
         LoadMiddleData();// load middle content
+    }
+
+    /**
+     * 去除数字中多余的0**/
+    public  String getPrettyNumber(String number) {
+        return BigDecimal.valueOf(Double.parseDouble(number))
+                .stripTrailingZeros().toPlainString();
     }
 
 }

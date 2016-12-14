@@ -20,6 +20,7 @@
        android:layout_centerVertical="true"
        android:visibility="invisible"
        android:background="@drawable/right_1920"
+
        />
 
     <TextView
