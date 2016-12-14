@@ -17,7 +17,7 @@ public class FrameGridAdapter extends BaseAdapter{
 
     private Context mcontext;
 
-    public String[] img_text ={"饮水安全","蓝藻胡泛","气象水文","调水引流","卫星遥感","河道水质"};
+    public String[] img_text ={"饮水安全","蓝藻湖泛","气象水文","调水引流","卫星遥感","河道水质"};
 
     public static int[] imgs = {R.drawable.ico1_2x,R.drawable.ico2_2x,
             R.drawable.ico3_2x,

@@ -32,7 +32,7 @@ public class FrameListViewAdapter extends BaseAdapter {
 
     private Context mContext;
 
-    public String[] cs_names ={"太湖水位(M)","平均水温(C)","氨氮(mg/L)","总氮(mg/L)","总磷(mg/L)","藻密度(M3)","沙渚天气"};
+    public String[] cs_names ={"太湖水位(M)","平均水温(C)","氨氮(mg/L)","总氮(mg/L)","总磷(mg/L)","藻密度","沙渚天气"};
 
     public  int[] head_imgs = {R.drawable.ico01_2x,R.drawable.ico02_2x, R.drawable.ico06_2x,
                           R.drawable.ico06_2x,R.drawable.ico03_2x,R.drawable.ico04_2x,R.drawable.ico05_2x};

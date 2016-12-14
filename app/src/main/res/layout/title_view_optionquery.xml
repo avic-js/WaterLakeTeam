@@ -10,6 +10,7 @@
        android:layout_height="50dp"
        android:layout_alignParentRight="true"
        android:layout_centerVertical="true"
+       android:visibility="invisible"
        android:background="@drawable/right_1920"/>
 
     <TextView
@@ -26,4 +27,5 @@
         android:text="@string/project_name"
         android:textSize="20sp"
         android:width="200dp"/>
+
 </RelativeLayout>
