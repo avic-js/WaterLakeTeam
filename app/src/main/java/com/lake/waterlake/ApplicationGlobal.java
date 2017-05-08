@@ -12,7 +12,7 @@ public class ApplicationGlobal {
 
     public static String WSSessionId = "";
 
-    public static final String loginwsName = "admin";
+    public static final String loginwsName = "admin"; // ws login  not change
     public static final String loginwspwd = "111111";
 
     public static String basePath = Environment.getExternalStorageDirectory()

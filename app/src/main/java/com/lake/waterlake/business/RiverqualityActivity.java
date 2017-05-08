@@ -20,11 +20,14 @@ import com.lake.waterlake.network.BaseRequest;
 import com.lake.waterlake.network.DefaultThreadPool;
 import com.lake.waterlake.network.RequestResultCallback;
 import com.lake.waterlake.util.RequestParameter;
+import com.lake.waterlake.util.StringFixFun;
 import com.lake.waterlake.util.WSFunction;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,13 +138,13 @@ public class RiverqualityActivity extends Activity {
                             for (int i=0;i<jarray.length();i++){
                                 pList = new ArrayList<TwoParams>();
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
-                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_1")));//氨氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_2")));//总氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_3")));//总磷
-                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_4")));//藻密度
-                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_5")));//水质评价
-                                pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_8")));//PH
-                                pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_9")));//溶解氧
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_1"), 2)));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_2"), 2)));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_3"), 3)));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_4"), 2)));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_5"), 2)));//水质评价
+                                pList.add(new TwoParams(getResources().getString(R.string.PH), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_8"), 2)));//PH
+                                pList.add(new TwoParams(getResources().getString(R.string.DO), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_9"), 2)));//溶解氧
                                 pList.add(new TwoParams(getResources().getString(R.string.jc_time_value),jsonObj.getString("upDateTime")));// 监测时间
                                 allList.add(pList);
                             }
@@ -182,5 +185,6 @@ public class RiverqualityActivity extends Activity {
 
         };
     };
+
 
 }

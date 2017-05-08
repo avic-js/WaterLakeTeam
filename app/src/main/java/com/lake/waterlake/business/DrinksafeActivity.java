@@ -20,11 +20,14 @@ import com.lake.waterlake.network.BaseRequest;
 import com.lake.waterlake.network.DefaultThreadPool;
 import com.lake.waterlake.network.RequestResultCallback;
 import com.lake.waterlake.util.RequestParameter;
+import com.lake.waterlake.util.StringFixFun;
 import com.lake.waterlake.util.WSFunction;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,14 +99,14 @@ public class DrinksafeActivity extends Activity {
                             for (int i=0;i<jarray.length();i++){
                                 JSONObject jsonObj = (JSONObject)jarray.get(i);
                                 pList = new ArrayList<TwoParams>();
-                                pList.add(new TwoParams(getResources().getString(R.string.NH3), jsonObj.getString("ProCol_4")));//氨氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TN), jsonObj.getString("ProCol_5")));//总氮
-                                pList.add(new TwoParams(getResources().getString(R.string.TP), jsonObj.getString("ProCol_6")));//总磷
-                                pList.add(new TwoParams(getResources().getString(R.string.algae), jsonObj.getString("ProCol_9")));//藻密度
-                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA), jsonObj.getString("ProCol_45")));//水质评价
-                                pList.add(new TwoParams(getResources().getString(R.string.PH), jsonObj.getString("ProCol_1")));//PH
-                                pList.add(new TwoParams(getResources().getString(R.string.DO), jsonObj.getString("ProCol_2")));//溶解氧
-                                pList.add(new TwoParams(getResources().getString(R.string.jc_time_value), jsonObj.getString("upDateTime")));
+                                pList.add(new TwoParams(getResources().getString(R.string.NH3), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_4"), 2)));//氨氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TN), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_5"), 2)));//总氮
+                                pList.add(new TwoParams(getResources().getString(R.string.TP), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_6"), 3)));//总磷
+                                pList.add(new TwoParams(getResources().getString(R.string.algae), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_9"), 2)));//藻密度
+                                pList.add(new TwoParams(getResources().getString(R.string.NAWQA),  StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_45"),0)));//水质评价
+                                pList.add(new TwoParams(getResources().getString(R.string.PH), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_1"), 2)));//PH
+                                pList.add(new TwoParams(getResources().getString(R.string.DO), StringFixFun.getPrettyNumber(jsonObj.getString("ProCol_2"), 2)));//溶解氧
+                                pList.add(new TwoParams(getResources().getString(R.string.jc_time_value),  jsonObj.getString("upDateTime")));
                                 allList.add(pList);
                             }
                             // handler send data
@@ -140,5 +143,8 @@ public class DrinksafeActivity extends Activity {
 
         };
     };
+
+
+
 
 }

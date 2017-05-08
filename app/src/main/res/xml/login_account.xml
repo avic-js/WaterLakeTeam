@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons>
+    <person id="1001">
+        <cname>顾  岗</cname>
+        <name>18951587777</name>
+        <password>111111</password>
+    </person>
+    <person id="1002">
+        <cname>权  辉</cname>
+        <name>13961601212</name>
+        <password>111111</password>
+    </person>
+    <person id="1003">
+        <cname>丁建清</cname>
+        <name>18921280222</name>
+        <password>111111</password>
+    </person>
+    <person id="1004">
+        <cname>卞宏志</cname>
+        <name>13961670333</name>
+        <password>111111</password>
+    </person>
+    <person id="1005">
+        <cname>周宏文</cname>
+        <name>18861819796</name>
+        <password>111111</password>
+    </person>
+    <person id="1006">
+        <cname>王英满</cname>
+        <name>18921132122</name>
+        <password>111111</password>
+    </person>
+    <person id="1007">
+        <cname>胡安国</cname>
+        <name>15961775616</name>
+        <password>111111</password>
+    </person>
+    <person id="1008">
+        <cname>罗清吉</cname>
+        <name>13961830462</name>
+        <password>111111</password>
+    </person>
+    <person id="1009">
+        <cname>戚文炜</cname>
+        <name>13961800620</name>
+        <password>111111</password>
+    </person>
+    <person id="1010">
+        <cname>高  倩</cname>
+        <name>18626321690</name>
+        <password>111111</password>
+    </person>
+    <person id="1011">
+        <cname>孙三保</cname>
+        <name>13961750106</name>
+        <password>111111</password>
+    </person>
+    <person id="1012">
+        <cname>周  洁</cname>
+        <name>13771087066</name>
+        <password>111111</password>
+    </person>
+    <person id="1013">
+        <cname>唐  凯</cname>
+        <name>15951506898</name>
+        <password>111111</password>
+    </person>
+    <person id="1014">
+        <cname>陈恩风</cname>
+        <name>15895353606</name>
+        <password>111111</password>
+    </person>
+</persons>

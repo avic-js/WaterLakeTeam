@@ -1,23 +1,23 @@
 package com.lake.waterlake.business;
 
 import android.app.Activity;
-import android.graphics.Canvas;
+
 import android.graphics.Color;
-import android.graphics.ColorFilter;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.ViewGroup;
+
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RadioButton;
+
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.lake.waterlake.R;
-import com.lake.waterlake.customcomponents.MenuRadioButton;
+
 
 /**
  * Created by yyh on 16/9/2.
